@@ -10,7 +10,7 @@ export const mockProjects: Project[] = [
     techStack: ["React", "Node.js", "PostgreSQL", "Tailwind CSS"],
     githubUrl: "https://github.com/richardlima/ecoconnect",
     liveUrl: "https://ecoconnect.app",
-    imageUrl: "/images/ecoconnect.png",
+    thumbnail: "/projects/ecoconnect.jpg", // ← coloque uma thumbnail aqui depois (ou use placeholder por enquanto)
   },
   {
     title: "Financial Flow",
@@ -18,30 +18,32 @@ export const mockProjects: Project[] = [
     techStack: ["React Native", "Firebase", "TypeScript"],
     githubUrl: "https://github.com/richardlima/financial-flow",
     liveUrl: "https://play.google.com/financialflow",
-    imageUrl: "/images/financial-flow.png",
+    thumbnail: "/projects/financialflow.jpg", // ← mesma coisa
   },
 ];
 
 export const mockSkills: Skill[] = [
-  { name: "TypeScript", icon: "TsIcon" },
-  { name: "Next.js", icon: "NextJsIcon" },
-  { name: "React", icon: "ReactIcon" },
-  { name: "Node.js", icon: "NodeJsIcon" },
-  { name: "Tailwind CSS", icon: "TailwindIcon" },
-  { name: "PostgreSQL", icon: "PostgresIcon" },
-  { name: "Git", icon: "GitIcon" },
-  { name: "AWS", icon: "AWSIcon" },
+  { name: "TypeScript", icon: "/skills/TypeScript.png" },
+  { name: "Next.js", icon: "/skills/Nextjs.png" },
+  { name: "React", icon: "/skills/React.png" },
+  { name: "Node.js", icon: "/skills/Node.js.png" },
+  { name: "Tailwind CSS", icon: "/skills/Tailwind CSS.png" },
+  { name: "PostgreSQL", icon: "/skills/PostgreSQL.png" },
+  { name: "SQLite", icon: "/skills/SQLite.png" },
+  { name: "Docker", icon: "/skills/Docker.png" },
+  { name: "GitHub", icon: "/skills/GitHub.png" },
+  { name: "AWS", icon: "/skills/AWS.png" },
+  // Adicione mais se quiser
 ];
 
-// Dados atualizados para Richard Itsou Lima
 export const profileData = {
-    name: "Richard Itsou Lima",
-    role: "Desenvolvedor Full Stack | React & Next.js",
-    summary: "Desenvolvedor apaixonado por criar experiências digitais de alto desempenho. Especializado na stack moderna JavaScript/TypeScript (Next.js, Node.js) e focado em soluções escaláveis e intuitivas.",
-    contact: {
-        email: "richard.lima@dev.com",
-        phone: "+55 11 99999-0000",
-        linkedin: "https://linkedin.com/in/richardlima",
-        github: "https://github.com/richardlima",
-    }
+  name: "Richard Itsou Lima",
+  role: "Desenvolvedor Full Stack | React & Next.js",
+  summary: "Desenvolvedor apaixonado por criar experiências digitais de alto desempenho. Especializado na stack moderna JavaScript/TypeScript (Next.js, Node.js) e focado em soluções escaláveis e intuitivas.",
+  contact: {
+    email: "richard.lima@dev.com",
+    phone: "+55 11 99999-0000",
+    linkedin: "https://linkedin.com/in/richardlima",
+    github: "https://github.com/richardlima",
+  }
 };
