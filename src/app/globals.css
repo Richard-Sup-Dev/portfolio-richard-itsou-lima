@@ -1,5 +1,6 @@
 /* src/app/globals.css */
 
+/* AS 3 DIRETIVAS DEVERÃO SER SEMPRE AS PRIMEIRAS LINHAS */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -14,6 +15,10 @@
     background-color: #1e293b; 
     /* Texto Claro */
     color: #f8fafc; 
+    /* Adiciona a fonte, se necessário. Deixei a font-family aqui para manter o seu estilo. */
+    font-family: Arial, Helvetica, sans-serif;
+    /* Garantindo scroll suave, se não estiver no layout.tsx */
+    scroll-behavior: smooth; 
   }
 }
 
