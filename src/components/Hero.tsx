@@ -2,7 +2,7 @@
 import { profileData } from '@/components/data/mock-data';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Mail, Github, Linkedin } from 'lucide-react';
+import { Mail, Github, Linkedin } from 'lucide-react'; 
 
 export default function Hero() {
   const { name, role, summary, contact } = profileData;
@@ -63,9 +63,7 @@ export default function Hero() {
 
         {/* Lado Direito: Imagem (Placeholder) */}
         <div className="md:w-2/5 flex justify-center">
-          {/* Placeholder para a imagem. Você substituirá o src pelo seu caminho real */}
           <div className="w-64 h-64 md:w-80 md:h-80 bg-slate-700 rounded-full flex items-center justify-center border-4 border-cyan-400 shadow-xl shadow-cyan-900/50 overflow-hidden">
-            {/* Se você tiver uma foto, coloque-a aqui! */}
             <span className="text-slate-300 text-lg">Sua Foto Aqui</span>
           </div>
         </div>

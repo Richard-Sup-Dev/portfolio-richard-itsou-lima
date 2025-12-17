@@ -1,8 +1,7 @@
-// src/app/page.tsx (Código final)
+// src/app/page.tsx
 
 import Hero from "@/components/Hero";
 import Projects from "@/components/Projects"; 
-// IMPORTAR NOVOS COMPONENTES
 import Skills from "@/components/Skills"; 
 import Footer from "@/components/Footer"; 
 

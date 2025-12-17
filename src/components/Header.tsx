@@ -1,11 +1,10 @@
 // src/components/Header.tsx
-'use client'; // Um componente de navegação que interage com a tela deve ser um Client Component
+'use client'; 
 
 import Link from 'next/link';
 import { useState } from 'react';
-import { Menu, X } from 'lucide-react'; // Importa ícones (se tiver instalado o lucide-react, senão, apenas remova o import)
+import { Menu, X } from 'lucide-react'; 
 
-// Dados de navegação
 const navLinks = [
   { name: 'Início', href: '#hero' },
   { name: 'Projetos', href: '#projects' },
@@ -16,13 +15,12 @@ const navLinks = [
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
-  // Certifique-se de que a tag 'nav' está no elemento principal para acessibilidade
   return (
     <header className="sticky top-0 z-50 bg-slate-800/90 backdrop-blur-sm shadow-md">
       <nav className="container mx-auto flex items-center justify-between p-4">
         {/* Logo/Nome */}
         <Link href="/" className="text-2xl font-bold text-cyan-400 hover:text-cyan-300 transition-colors duration-300">
-          Natsu Dev
+          Richard Dev
         </Link>
 
         {/* Links de Desktop */}
@@ -31,7 +29,7 @@ export default function Header() {
             <Link
               key={link.name}
               href={link.href}
-              className="nav-link text-lg" // 'nav-link' é a classe personalizada do globals.css
+              className="nav-link text-lg" 
             >
               {link.name}
             </Link>
@@ -56,7 +54,7 @@ export default function Header() {
               key={link.name}
               href={link.href}
               className="nav-link block px-4 py-2 text-base"
-              onClick={() => setIsOpen(false)} // Fecha ao clicar
+              onClick={() => setIsOpen(false)} 
             >
               {link.name}
             </Link>

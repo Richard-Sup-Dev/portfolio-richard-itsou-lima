@@ -1,7 +1,7 @@
 // src/components/Footer.tsx
 import { profileData } from '@/components/data/mock-data';
 import Link from 'next/link';
-import { Mail, Github, Linkedin, Phone } from 'lucide-react';
+import { Mail, Github, Linkedin, Phone } from 'lucide-react'; // Corrigido para 'Github'
 
 export default function Footer() {
   const { contact } = profileData;
@@ -47,7 +47,7 @@ export default function Footer() {
         
         {/* Direitos Autorais */}
         <p className="text-sm text-slate-500 mt-8">
-          © {new Date().getFullYear()} Natsu Dev. Todos os direitos reservados.
+          © {new Date().getFullYear()} Richard Dev. Todos os direitos reservados.
         </p>
       </div>
     </footer>

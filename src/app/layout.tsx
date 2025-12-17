@@ -1,4 +1,4 @@
-// src/app/layout.tsx (Versão Limpa para evitar Hydration Errors)
+// src/app/layout.tsx 
 
 import type { Metadata } from "next";
 import Header from "@/components/Header"; 
@@ -7,8 +7,9 @@ import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
+// Metadados ajustados
 export const metadata: Metadata = {
-  title: "Olá, Seja Bem-Vindo ao Meu Portifolio - Portfólio Full Stack",
+  title: "Richard Lima | Desenvolvedor Full Stack",
   description: "Portfólio de Richard Itsou Lima, Desenvolvedor Full Stack em React e Next.js.",
 };
 
@@ -18,12 +19,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    // Removendo comentários e espaçamento desnecessários dentro do <html> e <body>
+    // Versão Limpa para evitar erros de hidratação
     <html lang="pt-BR" className="scroll-smooth"> 
       <body className={inter.className}>
         <Header />
         <main>{children}</main>
-        {/* O Footer será renderizado via children em page.tsx */}
       </body>
     </html>
   );
