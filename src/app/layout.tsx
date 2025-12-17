@@ -8,8 +8,8 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Natsu Dev - Portfólio Full Stack",
-  description: "Portfólio de Natsu Dragneel, Desenvolvedor Full Stack especializado em React e Next.js.",
+  title: "Olá, Seja Bem-Vindo ao Meu Portifolio - Portfólio Full Stack",
+  description: "Portfólio de Richard Itsou Lima, Desenvolvedor Full Stack em React e Next.js.",
 };
 
 export default function RootLayout({
