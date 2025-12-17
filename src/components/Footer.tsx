@@ -1,7 +1,7 @@
 // src/components/Footer.tsx
 import { profileData } from '@/components/data/mock-data';
 import Link from 'next/link';
-import { Mail, Github, Linkedin, Phone } from 'lucide-react'; // Corrigido para 'Github'
+import { Mail, Github, Linkedin, Phone } from 'lucide-react'; 
 
 export default function Footer() {
   const { contact } = profileData;

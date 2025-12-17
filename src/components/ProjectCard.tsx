@@ -1,7 +1,7 @@
 // src/components/ProjectCard.tsx
 import { Project } from '@/types/project.type';
 import Link from 'next/link';
-import { Github, Globe } from 'lucide-react'; // Corrigido para 'Github'
+import { Github, Globe } from 'lucide-react'; 
 
 interface ProjectCardProps {
   project: Project;

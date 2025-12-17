@@ -33,7 +33,9 @@ export default function Hero() {
           <div className="flex flex-wrap gap-4 justify-center md:justify-start pt-4">
             <Link 
               href="#contact" 
-              className="px-6 py-3 bg-cyan-500 text-slate-900 font-bold rounded-lg shadow-lg hover:bg-cyan-400 transition-transform duration-300 transform hover:scale-105 shadow-neon"
+              // Estilo neon aplicado como estilo inline para contornar o erro do Tailwind
+              className="px-6 py-3 bg-cyan-500 text-slate-900 font-bold rounded-lg shadow-lg hover:bg-cyan-400 transition-transform duration-300 transform hover:scale-105"
+              style={{ boxShadow: '0 0 15px rgba(6, 182, 212, 0.7)' }}
             >
               Fale Comigo
             </Link>

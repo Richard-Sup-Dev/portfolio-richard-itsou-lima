@@ -23,13 +23,14 @@ export default function Header() {
           Richard Dev
         </Link>
 
-        {/* Links de Desktop */}
+        {/* Links de Desktop - Classes aplicadas diretamente */}
         <div className="hidden md:flex space-x-6">
           {navLinks.map((link) => (
             <Link
               key={link.name}
               href={link.href}
-              className="nav-link text-lg" 
+              // Classes do .nav-link aplicadas diretamente
+              className="text-lg text-slate-300 hover:text-cyan-400 transition-colors duration-300"
             >
               {link.name}
             </Link>
@@ -46,14 +47,15 @@ export default function Header() {
         </button>
       </nav>
 
-      {/* Menu Mobile (Dropdown) */}
+      {/* Menu Mobile (Dropdown) - Classes aplicadas diretamente */}
       {isOpen && (
         <div className="md:hidden bg-slate-800 shadow-lg pb-2">
           {navLinks.map((link) => (
             <Link
               key={link.name}
               href={link.href}
-              className="nav-link block px-4 py-2 text-base"
+              // Classes do .nav-link aplicadas diretamente
+              className="block px-4 py-2 text-base text-slate-300 hover:text-cyan-400 transition-colors duration-300"
               onClick={() => setIsOpen(false)} 
             >
               {link.name}
