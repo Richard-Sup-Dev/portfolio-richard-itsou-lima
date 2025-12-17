@@ -4,13 +4,22 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Estilos de Dark Mode e Componentes Personalizados */
+/* ---------------------------------------------------- */
+/* 1. Estilos de Base (Ajusta tags HTML globais) */
+/* ---------------------------------------------------- */
 
-body {
-  /* Fundo Escuro para todo o portfólio */
-  background-color: #1e293b; /* slate-800 */
-  color: #f8fafc; /* Texto Claro */
+@layer base {
+  body {
+    /* Fundo Escuro para todo o portfólio (slate-800) */
+    background-color: #1e293b; 
+    /* Texto Claro */
+    color: #f8fafc; 
+  }
 }
+
+/* ---------------------------------------------------- */
+/* 2. Componentes Personalizados (Classes customizadas) */
+/* ---------------------------------------------------- */
 
 @layer components {
     /* Define a classe para links de navegação no Header */
