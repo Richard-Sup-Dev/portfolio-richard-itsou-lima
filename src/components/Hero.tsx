@@ -168,7 +168,7 @@ export default function Hero() {
           </motion.div>
         </motion.div>
 
-        {/* Foto com efeito holograma 3D */}
+        {/* Foto com efeito holograma 3D + Equalizador de Som */}
         <motion.div
           className="relative flex justify-center"
           onMouseMove={(e) => {
@@ -181,33 +181,36 @@ export default function Hero() {
             mouseY.set(0);
           }}
         >
-          {/* O container principal agora flutua via CSS */}
+          {/* Container que flutua e rotaciona */}
           <motion.div
             style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
             className="relative w-80 h-80 md:w-96 md:h-96 animate-float"
           >
-            {/* Glow de fundo */}
+            {/* 1. Ondas de Som (Equalizador) - Camadas que expandem */}
+            <div className="absolute -inset-4 rounded-full border-2 border-cyan-400/40 animate-audio-wave" />
+            <div className="absolute -inset-4 rounded-full border-2 border-cyan-400/30 animate-audio-wave delay-500" />
+            <div className="absolute -inset-8 rounded-full border border-cyan-500/20 animate-audio-wave delay-1000" />
+
+            {/* 2. Glow de fundo pulsante */}
             <div className="absolute inset-0 rounded-full bg-cyan-500/20 blur-3xl animate-pulse" />
 
-            {/* Borda Neon externa que pulsa */}
-            <div className="absolute -inset-4 rounded-full border border-cyan-400/20 animate-ping-slow" />
-
-            {/* Container da Imagem */}
-            <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-cyan-400 shadow-[0_0_30px_rgba(6,182,212,0.5)]">
+            {/* 3. Container da Imagem com borda neon fixa */}
+            <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-cyan-400 shadow-[0_0_30px_rgba(6,182,212,0.6)] z-10">
               <Image
                 src="/Richard.jpg"
                 alt="Richard Itsou Lima"
                 fill
-                className="object-cover scale-110" /* Aumentei um pouco para não aparecer bordas no parallax */
+                className="object-cover scale-110"
                 priority
               />
-              {/* Overlay de scanline (opcional, dá um tom mais tech) */}
-              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-cyan-500/5 to-transparent pointer-events-none" />
+              {/* Overlay de Scanlines (Efeito de TV antiga/Holograma) */}
+              <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,255,255,0.05)_50%),linear-gradient(90deg,rgba(255,0,0,0.03),rgba(0,255,0,0.01),rgba(0,0,255,0.03))] bg-[length:100%_4px,3px_100%] pointer-events-none" />
             </div>
 
-            {/* Anéis holográficos (ajustados para não bugar o parallax) */}
-            <div className="absolute inset-0 rounded-full border-2 border-cyan-400/30 animate-ping-slow" />
-            <div className="absolute -inset-8 rounded-full border border-cyan-500/10 animate-ping-slow animation-delay-2000" />
+            {/* 4. Pequenos detalhes de partículas ao redor (opcional) */}
+            <div className="absolute -top-4 -right-4 w-4 h-4 bg-cyan-400 rounded-full blur-sm animate-ping" />
+            <div className="absolute -bottom-2 -left-2 w-2 h-2 bg-cyan-300 rounded-full blur-sm animate-pulse" />
+
           </motion.div>
         </motion.div>
       </div>

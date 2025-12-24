@@ -8,10 +8,9 @@
 :root {
   --background: #000000;
   --foreground: #e0f2fe;
-  --primary-cyan: #06b6d4;
-  --cyan-glow: rgba(6, 182, 212, 0.8);
-  --cyan-glow-soft: rgba(6, 182, 212, 0.4);
-  --cyan-dark: #164e63;
+  --primary-cyan: #00f2ff;
+  --cyan-glow: rgba(0, 242, 255, 0.8);
+  --cyan-glow-soft: rgba(0, 242, 255, 0.2);
 }
 
 /* Força dark mode total */
@@ -22,65 +21,60 @@
   }
 }
 
-/* Estilos globais */
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: 'Roboto Mono', 'Courier New', monospace;
+  font-family: 'Roboto Mono', monospace;
   overflow-x: hidden;
 }
 
-/* Neon glow pra textos */
+/* --- EFEITOS DE TEXTO --- */
 .neon-text {
-  text-shadow: 
-    0 0 10px var(--cyan-glow),
-    0 0 20px var(--cyan-glow),
-    0 0 40px var(--cyan-glow-soft);
+  text-shadow: 0 0 10px var(--cyan-glow), 0 0 20px var(--cyan-glow-soft);
 }
 
-/* --- ANIMAÇÕES --- */
+.glitch {
+  animation: glitch-color 2s linear infinite;
+}
+
+/* --- ANIMAÇÕES ÉPICAS --- */
 
 /* Flutuação suave */
 @keyframes float {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-20px); }
+  50% { transform: translateY(-15px); }
 }
 
-/* Pulso de onda (Efeito Song/Equalizador) */
-@keyframes audio-pulse {
-  0% { transform: scale(1); opacity: 0.8; border-width: 2px; }
-  50% { transform: scale(1.15); opacity: 0.4; border-width: 4px; }
-  100% { transform: scale(1.3); opacity: 0; border-width: 1px; }
+/* Rotação e Mudança de Forma (Efeito Equalizador/Holograma) */
+@keyframes morph-rotate {
+  0% { transform: rotate(0deg) scale(1); border-radius: 50%; }
+  33% { transform: rotate(120deg) scale(1.1); border-radius: 40% 60% 50% 50%; }
+  66% { transform: rotate(240deg) scale(0.95); border-radius: 60% 40% 60% 40%; }
+  100% { transform: rotate(360deg) scale(1); border-radius: 50%; }
+}
+
+/* Pulso de onda sonora */
+@keyframes audio-wave {
+  0% { transform: scale(0.9); opacity: 0; }
+  50% { opacity: 0.5; }
+  100% { transform: scale(1.4); opacity: 0; }
 }
 
 /* Glitch de cor */
-@keyframes glitch {
-  0% { text-shadow: 2px 2px 0 #06b6d4, -2px -2px 0 #ec4899; }
-  20% { text-shadow: -2px -2px 0 #ec4899, 2px 2px 0 #06b6d4; }
-  100% { text-shadow: 2px 2px 0 #06b6d4, -2px -2px 0 #ec4899; }
+@keyframes glitch-color {
+  0% { text-shadow: 2px 2px 0 #00f2ff, -2px -2px 0 #ff00ff; }
+  25% { text-shadow: -2px 2px 0 #00f2ff, 2px -2px 0 #ff00ff; }
+  100% { text-shadow: 2px 2px 0 #00f2ff, -2px -2px 0 #ff00ff; }
 }
 
-/* Classes utilitárias de animação */
-.animate-float { animation: float 5s ease-in-out infinite; }
-.animate-audio-wave { animation: audio-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
-.glitch { animation: glitch 2s linear infinite; }
+/* Classes utilitárias */
+.animate-float { animation: float 6s ease-in-out infinite; }
+.animate-hologram { animation: morph-rotate 10s linear infinite; }
+.animate-wave { animation: audio-wave 3s cubic-bezier(0, 0, 0.2, 1) infinite; }
 
 /* Delays para as ondas */
-.delay-500 { animation-delay: 0.5s; }
 .delay-1000 { animation-delay: 1s; }
+.delay-2000 { animation-delay: 2s; }
 
-/* Scroll suave */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Foco e Seleção Neon */
-:focus-visible {
-  outline: 2px solid var(--primary-cyan);
-  outline-offset: 4px;
-}
-
-::selection {
-  background: var(--primary-cyan);
-  color: #000;
-}
+/* Seleção de texto neon */
+::selection { background: var(--primary-cyan); color: #000; }
