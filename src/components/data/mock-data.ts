@@ -33,7 +33,6 @@ export const mockSkills: Skill[] = [
   { name: "Docker", icon: "/skills/Docker.png" },
   { name: "GitHub", icon: "/skills/GitHub.png" },
   { name: "AWS", icon: "/skills/AWS.png" },
-  // Adicione mais se quiser
 ];
 
 export const profileData = {

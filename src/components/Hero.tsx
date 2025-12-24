@@ -4,159 +4,205 @@ import { profileData } from '@/components/data/mock-data';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Mail, Github, Linkedin } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, useMotionValue, useTransform } from 'framer-motion';
+import { useEffect, useState } from 'react';
 
 export default function Hero() {
   const { name, role, summary, contact } = profileData;
 
-  // Variants para animações de fade up
-  const fadeUp = {
-    initial: { opacity: 0, y: 60 },
-    animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.8, ease: "easeOut" }
-  };
+  // Para efeito typewriter no cargo
+  const [displayedRole, setDisplayedRole] = useState("");
+  const fullRole = role;
 
-  // Container com stagger nos filhos
-  const staggerContainer = {
-    animate: {
-      transition: {
-        staggerChildren: 0.15
+  useEffect(() => {
+    let index = 0;
+    const interval = setInterval(() => {
+      if (index <= fullRole.length) {
+        setDisplayedRole(fullRole.slice(0, index));
+        index++;
+      } else {
+        clearInterval(interval);
       }
-    }
-  };
+    }, 80);
+    return () => clearInterval(interval);
+  }, [fullRole]);
+
+  // Mouse parallax sutil na foto
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+  const rotateX = useTransform(mouseY, [-300, 300], [10, -10]);
+  const rotateY = useTransform(mouseX, [-300, 300], [-10, 10]);
 
   return (
-    <section 
-      id="hero" 
-      className="container mx-auto px-4 py-20 min-h-screen flex items-center justify-center"
-    >
-      <div className="flex flex-col md:flex-row items-center gap-12 max-w-5xl w-full">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-6 py-24">
+      {/* Partículas ciano flutuando (CSS puro - leve e performático) */}
+      <div className="absolute inset-0 pointer-events-none">
+        {[...Array(8)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute w-1 h-1 bg-cyan-400/60 rounded-full animate-float"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              animationDelay: `${i * 0.8}s`,
+              animationDuration: `${15 + i * 3}s`,
+              boxShadow: '0 0 10px rgba(6, 182, 212, 0.8)',
+            }}
+          />
+        ))}
+      </div>
+
+      <div className="relative z-10 max-w-6xl mx-auto w-full grid md:grid-cols-2 gap-16 items-center">
         
-        {/* Lado Esquerdo: Texto e Botões */}
-        <motion.div 
-          className="md:w-3/5 text-center md:text-left space-y-8"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6 }}
+        {/* Texto */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+          className="text-center md:text-left space-y-8"
         >
-          <motion.div 
-            variants={staggerContainer} 
-            initial="initial" 
-            animate="animate"
-          >
-            
-            <motion.h1 
-              variants={fadeUp}
-              className="text-5xl md:text-7xl font-extrabold leading-tight text-slate-50"
+          <div>
+            <motion.h1
+              className="text-5xl md:text-7xl lg:text-8xl font-black leading-tight"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8 }}
             >
-              Olá, eu sou{" "}
-              <motion.span 
-                className="text-cyan-400"
-                initial={{ opacity: 0, x: -50 }}
+              <span className="text-slate-200">Olá, eu sou</span>
+              <br />
+              <motion.span
+                className="bg-gradient-to-r from-cyan-300 via-cyan-400 to-cyan-500 bg-clip-text text-transparent inline-block"
+                initial={{ opacity: 0, x: -100 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.4, duration: 0.9, ease: "easeOut" }}
+                transition={{ delay: 0.5, duration: 1.2, type: "spring" }}
+                style={{
+                  textShadow: `
+                    0 0 20px rgba(6, 182, 212, 0.8),
+                    0 0 40px rgba(6, 182, 212, 0.5),
+                    0 0 60px rgba(6, 182, 212, 0.3)
+                  `,
+                }}
               >
-                {name}
-              </motion.span>.
+                {name}.
+              </motion.span>
             </motion.h1>
 
-            <motion.h2 
-              variants={fadeUp}
-              className="text-2xl md:text-3xl font-semibold text-slate-300 mt-4"
+            {/* Cargo com efeito typewriter + glitch */}
+            <motion.h2
+              className="text-3xl md:text-4xl font-bold text-cyan-300 mt-6 h-12"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1.2 }}
             >
-              {role}
+              <span className="relative">
+                {displayedRole}
+                <span className="animate-ping absolute inline-block w-1 h-full bg-cyan-400 right-0 -mr-1" />
+              </span>
             </motion.h2>
+          </div>
 
-            <motion.p 
-              variants={fadeUp}
-              className="text-lg text-slate-400 max-w-xl mx-auto md:mx-0 mt-6 leading-relaxed"
-            >
-              {summary}
-            </motion.p>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.6, duration: 1 }}
+            className="text-lg md:text-xl text-slate-300 max-w-lg mx-auto md:mx-0 leading-relaxed"
+          >
+            {summary}
+          </motion.p>
 
-            {/* Botões de Ação */}
-            <motion.div 
-              variants={fadeUp}
-              className="flex flex-wrap gap-4 justify-center md:justify-start pt-6"
+          {/* Botões */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.8 }}
+            className="flex flex-wrap gap-5 justify-center md:justify-start pt-6"
+          >
+            <Link
+              href="#contact"
+              className="px-8 py-4 bg-cyan-500/20 backdrop-blur-md border border-cyan-400/50 text-cyan-300 font-bold rounded-xl hover:bg-cyan-500/30 hover:border-cyan-300 transition-all duration-500 group relative overflow-hidden"
             >
+              <span className="relative z-10">Fale Comigo</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/50 to-transparent translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-700" />
+            </Link>
+
+            <Link
+              href={contact.github}
+              target="_blank"
+              className="px-8 py-4 border border-slate-500 text-slate-200 font-semibold rounded-xl hover:border-cyan-400 hover:text-cyan-300 hover:bg-cyan-400/10 transition-all duration-500"
+            >
+              Ver GitHub
+            </Link>
+          </motion.div>
+
+          {/* Ícones sociais com glow forte */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 2 }}
+            className="flex gap-8 justify-center md:justify-start pt-8"
+          >
+            {[Mail, Linkedin, Github].map((Icon, i) => (
               <motion.div
-                whileHover={{ scale: 1.08, boxShadow: '0 0 30px rgba(6, 182, 212, 0.8)' }}
-                whileTap={{ scale: 0.95 }}
+                key={i}
+                whileHover={{ scale: 1.4, rotate: i % 2 === 0 ? 15 : -15 }}
+                whileTap={{ scale: 0.9 }}
               >
-                <Link 
-                  href="#contact"
-                  className="px-6 py-3 bg-cyan-500 text-slate-900 font-bold rounded-lg shadow-lg hover:bg-cyan-400 transition-all duration-300"
-                  style={{ boxShadow: '0 0 20px rgba(6, 182, 212, 0.6)' }}
+                <Link
+                  href={
+                    Icon === Mail
+                      ? `mailto:${contact.email}`
+                      : Icon === Linkedin
+                      ? contact.linkedin
+                      : contact.github
+                  }
+                  target={Icon !== Mail ? "_blank" : undefined}
+                  className="text-slate-400 hover:text-cyan-300 transition-all duration-300"
+                  style={{
+                    filter: 'drop-shadow(0 0 15px rgba(6, 182, 212, 0.6))',
+                  }}
                 >
-                  Fale Comigo
+                  <Icon size={32} />
                 </Link>
               </motion.div>
-              
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                <Link 
-                  href={contact.github} 
-                  target="_blank"
-                  className="px-6 py-3 border border-slate-500 text-slate-50 font-semibold rounded-lg hover:border-cyan-400 hover:text-cyan-400 hover:bg-cyan-400/10 transition-all duration-300"
-                >
-                  Ver GitHub
-                </Link>
-              </motion.div>
-            </motion.div>
-
-            {/* Ícones Sociais */}
-            <motion.div 
-              variants={fadeUp}
-              className="flex gap-6 justify-center md:justify-start pt-8"
-            >
-              <motion.div whileHover={{ scale: 1.3, rotate: 8 }} whileTap={{ scale: 0.9 }}>
-                <Link href={`mailto:${contact.email}`} aria-label="Email" className="text-slate-400 hover:text-cyan-400 transition-colors">
-                  <Mail size={28} />
-                </Link>
-              </motion.div>
-              <motion.div whileHover={{ scale: 1.3, rotate: -8 }} whileTap={{ scale: 0.9 }}>
-                <Link href={contact.linkedin} target="_blank" aria-label="LinkedIn" className="text-slate-400 hover:text-cyan-400 transition-colors">
-                  <Linkedin size={28} />
-                </Link>
-              </motion.div>
-              <motion.div whileHover={{ scale: 1.3, rotate: 8 }} whileTap={{ scale: 0.9 }}>
-                <Link href={contact.github} target="_blank" aria-label="GitHub" className="text-slate-400 hover:text-cyan-400 transition-colors">
-                  <Github size={28} />
-                </Link>
-              </motion.div>
-            </motion.div>
-
+            ))}
           </motion.div>
         </motion.div>
 
-        {/* Lado Direito: Sua Foto Real */}
-        <motion.div 
-          className="md:w-2/5 flex justify-center"
-          initial={{ opacity: 0, scale: 0.8, x: 100 }}
-          animate={{ opacity: 1, scale: 1, x: 0 }}
-          transition={{ 
-            delay: 0.4,
-            duration: 1.2,
-            type: "spring",
-            stiffness: 80,
-            damping: 15
+        {/* Foto com efeito holograma 3D */}
+        <motion.div
+          className="relative flex justify-center"
+          onMouseMove={(e) => {
+            const rect = e.currentTarget.getBoundingClientRect();
+            mouseX.set(e.clientX - rect.left - rect.width / 2);
+            mouseY.set(e.clientY - rect.top - rect.height / 2);
+          }}
+          onMouseLeave={() => {
+            mouseX.set(0);
+            mouseY.set(0);
           }}
         >
-          <div className="w-64 h-64 md:w-80 md:h-80 rounded-full border-4 border-cyan-400 shadow-2xl overflow-hidden relative group">
-            <Image
-              src="/Richard.jpg"  // Sua foto na pasta public
-              alt="Richard Itsou Lima"
-              fill
-              className="object-cover transition-transform duration-500 group-hover:scale-110"
-              priority
-            />
-            {/* Glow no hover */}
-            <div className="absolute inset-0 rounded-full border-4 border-transparent group-hover:border-cyan-300 transition-all duration-700 opacity-70 pointer-events-none"></div>
-          </div>
+          <motion.div
+            style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
+            className="relative w-80 h-80 md:w-96 md:h-96"
+          >
+            <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-cyan-500/20 via-transparent to-cyan-400/20 blur-3xl animate-pulse" />
+            
+            <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-cyan-400/80 shadow-2xl">
+              <Image
+                src="/Richard.jpg"
+                alt="Richard Itsou Lima"
+                fill
+                className="object-cover"
+                priority
+              />
+            </div>
+
+            {/* Anéis holográficos pulsando */}
+            <div className="absolute inset-0 rounded-full border border-cyan-400/50 animate-ping-slow" />
+            <div className="absolute inset-4 rounded-full border border-cyan-300/40 animate-ping-slow animation-delay-1000" />
+            <div className="absolute inset-8 rounded-full border border-cyan-200/30 animate-ping-slow animation-delay-2000" />
+          </motion.div>
         </motion.div>
-        
       </div>
     </section>
   );
