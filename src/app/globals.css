@@ -47,18 +47,18 @@ body {
 
 /* Rotação e Mudança de Forma (Efeito Equalizador/Holograma) */
 @keyframes morph-rotate {
-  0% { transform: rotate(0deg) scale(1); border-radius: 50%; }
-  33% { transform: rotate(120deg) scale(1.1); border-radius: 40% 60% 50% 50%; }
-  66% { transform: rotate(240deg) scale(0.95); border-radius: 60% 40% 60% 40%; }
-  100% { transform: rotate(360deg) scale(1); border-radius: 50%; }
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
+
 
 /* Pulso de onda sonora */
 @keyframes audio-wave {
-  0% { transform: scale(0.9); opacity: 0; }
-  50% { opacity: 0.5; }
-  100% { transform: scale(1.4); opacity: 0; }
+  0%   { opacity: 0.15; }
+  50%  { opacity: 0.45; }
+  100% { opacity: 0.15; }
 }
+
 
 /* Glitch de cor */
 @keyframes glitch-color {
@@ -78,3 +78,4 @@ body {
 
 /* Seleção de texto neon */
 ::selection { background: var(--primary-cyan); color: #000; }
+

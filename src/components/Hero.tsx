@@ -168,49 +168,43 @@ export default function Hero() {
           </motion.div>
         </motion.div>
 
-        {/* Foto com efeito holograma 3D + Equalizador de Som */}
-        <motion.div
-          className="relative flex justify-center"
-          onMouseMove={(e) => {
-            const rect = e.currentTarget.getBoundingClientRect();
-            mouseX.set(e.clientX - rect.left - rect.width / 2);
-            mouseY.set(e.clientY - rect.top - rect.height / 2);
-          }}
-          onMouseLeave={() => {
-            mouseX.set(0);
-            mouseY.set(0);
-          }}
-        >
-          {/* Container que flutua e rotaciona */}
-          <motion.div
-            style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
-            className="relative w-80 h-80 md:w-96 md:h-96 animate-float"
-          >
-            {/* 1. Ondas de Som (Equalizador) - Camadas que expandem */}
-            <div className="absolute -inset-4 rounded-full border-2 border-cyan-400/40 animate-audio-wave" />
-            <div className="absolute -inset-4 rounded-full border-2 border-cyan-400/30 animate-audio-wave delay-500" />
-            <div className="absolute -inset-8 rounded-full border border-cyan-500/20 animate-audio-wave delay-1000" />
+        {/* Foto de Perfil Estilo Interface Futurista */}
+        <motion.div className="relative flex justify-center items-center">
 
-            {/* 2. Glow de fundo pulsante */}
+          {/* Anéis de Onda Sonora (Pulsando de dentro para fora) */}
+          <div className="absolute w-[120%] h-[120%] rounded-full border border-cyan-500/30 animate-wave" />
+          <div className="absolute w-[120%] h-[120%] rounded-full border border-cyan-400/20 animate-wave delay-1000" />
+
+          {/* Anéis Holográficos que giram e mudam de forma (Morphing) */}
+          <div className="absolute w-[110%] h-[110%] border-t-2 border-l-2 border-cyan-500/40 animate-hologram" />
+          <div className="absolute w-[105%] h-[105%] border-b-2 border-r-2 border-cyan-300/30 animate-hologram" style={{ animationDirection: 'reverse' }} />
+
+          {/* Container Principal da Foto */}
+          <motion.div
+            style={{
+              rotateX,
+              rotateY,
+              transformStyle: "preserve-3d",
+              perspective: 1000
+            }}
+            className="relative w-72 h-72 md:w-96 md:h-96 aspect-square"
+          >
+
+            {/* Glow de fundo intenso */}
             <div className="absolute inset-0 rounded-full bg-cyan-500/20 blur-3xl animate-pulse" />
 
-            {/* 3. Container da Imagem com borda neon fixa */}
-            <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-cyan-400 shadow-[0_0_30px_rgba(6,182,212,0.6)] z-10">
+            {/* Moldura da Foto com Brilho Interno */}
+            <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-cyan-400 shadow-[0_0_50px_rgba(0,242,255,0.4)] z-10">
               <Image
                 src="/Richard.jpg"
                 alt="Richard Itsou Lima"
                 fill
-                className="object-cover scale-110"
+                className="object-cover"
                 priority
               />
-              {/* Overlay de Scanlines (Efeito de TV antiga/Holograma) */}
-              <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,255,255,0.05)_50%),linear-gradient(90deg,rgba(255,0,0,0.03),rgba(0,255,0,0.01),rgba(0,0,255,0.03))] bg-[length:100%_4px,3px_100%] pointer-events-none" />
+              {/* Overlay de Scanlines Tech */}
+              <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,255,255,0.05)_50%)] bg-[length:100%_4px] pointer-events-none opacity-50" />
             </div>
-
-            {/* 4. Pequenos detalhes de partículas ao redor (opcional) */}
-            <div className="absolute -top-4 -right-4 w-4 h-4 bg-cyan-400 rounded-full blur-sm animate-ping" />
-            <div className="absolute -bottom-2 -left-2 w-2 h-2 bg-cyan-300 rounded-full blur-sm animate-pulse" />
-
           </motion.div>
         </motion.div>
       </div>
