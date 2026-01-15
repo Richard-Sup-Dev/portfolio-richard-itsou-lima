@@ -31,7 +31,7 @@ export const mockSkills: Skill[] = [
   // Backend
   { name: "Node.js", icon: "/skills/Node.js.png", level: "Intermediário", category: "Backend" },
   { name: "PostgreSQL", icon: "/skills/PostgreSQL.png", level: "Intermediário", category: "Backend" },
-  { name: "SQLite", icon: "/skills/SQLite.png", level: "Básico", category: "Backend" },
+  { name: "SQLite", icon: "/skills/Sqlite.png", level: "Básico", category: "Backend" },
   // DevOps
   { name: "Docker", icon: "/skills/Docker.png", level: "Básico", category: "DevOps" },
   { name: "GitHub", icon: "/skills/GitHub.png", level: "Avançado", category: "DevOps" },
