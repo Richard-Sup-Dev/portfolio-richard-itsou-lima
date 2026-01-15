@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import HeaderMobile from './HeaderMobile';
 
 const navLinks = [
   { name: 'Início', href: '#hero' },
@@ -59,71 +60,47 @@ export default function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-slate-900/80 backdrop-blur-md shadow-md transition-all duration-200 border-b-2 border-cyan-800/40 w-full text-base sm:text-lg">
-      <nav className="container mx-auto flex flex-wrap items-center justify-between px-2 sm:px-4 py-3 sm:py-4">
-        {/* Logo */}
-        <Link 
-          href="/" 
-          className="text-2xl md:text-3xl font-extrabold text-cyan-400 hover:text-cyan-300 transition-all duration-200 neon-text"
-        >
-          Richard Itsou Lima
-        </Link>
-
-        {/* Links Desktop */}
-        <div className="hidden md:flex items-center space-x-6 lg:space-x-10">
-          {navLinks.map((link) => {
-            const id = link.href.replace('#', '');
-            return (
-              <Link
-                key={link.name}
-                href={link.href}
-                onClick={() => handleNavClick(id)}
-                className={`relative text-lg font-extrabold transition-all duration-200 group neon-text ${
-                  activeSection === id
-                    ? 'text-cyan-400'
-                    : 'text-slate-300 hover:text-cyan-400'
-                }`}
-              >
-                {link.name}
-                <span
-                  className={`absolute left-0 -bottom-1.5 h-0.75 bg-cyan-400 transition-all duration-200 ease-out ${
-                    activeSection === id
-                      ? 'w-full'
-                      : 'w-0 group-hover:w-full'
+    <>
+      {/* Header Mobile */}
+      <div className="md:hidden">
+        <HeaderMobile onMenuClick={() => setIsOpen(!isOpen)} />
+      </div>
+      {/* Header Desktop */}
+      <header className="hidden md:block sticky top-0 z-50 bg-slate-900/80 backdrop-blur-md shadow-md transition-all duration-200 border-b-2 border-cyan-800/40 w-full">
+        <nav className="container mx-auto flex items-center justify-between px-4 py-4">
+          {/* Logo */}
+          <Link 
+            href="/" 
+            className="text-2xl md:text-3xl font-extrabold text-cyan-400 hover:text-cyan-300 transition-all duration-200 neon-text"
+          >
+            Richard Itsou Lima
+          </Link>
+          {/* Links Desktop */}
+          <div className="flex items-center space-x-6 lg:space-x-10">
+            {navLinks.map((link) => {
+              const id = link.href.replace('#', '');
+              return (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  onClick={() => handleNavClick(id)}
+                  className={`relative text-lg font-extrabold transition-all duration-200 group neon-text ${
+                    activeSection === id ? 'text-cyan-400' : 'text-slate-200 hover:text-cyan-300'
                   }`}
-                />
-              </Link>
-            );
-          })}
-        </div>
-
-        {/* Botão Menu Mobile */}
-        <button
-          className="md:hidden text-cyan-400 p-2 rounded-lg hover:bg-slate-800 transition duration-200"
-          onClick={() => setIsOpen(!isOpen)}
-          aria-label="Toggle Menu"
-        >
-          {isOpen ? <X size={28} /> : <Menu size={28} />}
-        </button>
-      </nav>
-
-      {/* Menu Mobile Dropdown */}
-      {isOpen && (
-        <div className="md:hidden bg-slate-900/95 backdrop-blur-lg shadow-2xl w-full">
-          <div className="flex flex-col py-4 w-full">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                className="px-6 py-4 text-lg text-slate-200 hover:bg-slate-800 hover:text-cyan-400 transition-all duration-200"
-                onClick={() => setIsOpen(false)}
-              >
-                {link.name}
-              </Link>
-            ))}
+                  aria-current={activeSection === id ? 'page' : undefined}
+                >
+                  {link.name}
+                  <span
+                    className={`absolute left-0 -bottom-1.5 h-0.75 bg-cyan-400 transition-all duration-200 ease-out ${
+                      activeSection === id ? 'w-full' : 'w-0 group-hover:w-full'
+                    }`}
+                  />
+                </Link>
+              );
+            })}
           </div>
-        </div>
-      )}
-    </header>
+        </nav>
+      </header>
+    </>
   );
 }

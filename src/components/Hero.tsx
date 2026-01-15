@@ -35,23 +35,23 @@ export default function Hero() {
   const rotateY = useTransform(mouseX, [-300, 300], [-10, 10]);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-1 sm:px-4 py-4 sm:py-16 bg-[radial-gradient(ellipse_at_top_left,var(--cyan-glow-soft),transparent_70%)]">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-6 py-24 bg-[radial-gradient(ellipse_at_top_left,var(--cyan-glow-soft),transparent_70%)]">
       {/* Partículas ciano flutuando */}
       <Particles count={12} />
 
-      <div className="relative z-10 max-w-6xl mx-auto w-full grid grid-cols-1 gap-2 sm:gap-6 md:gap-12 items-center">
+      <div className="relative z-10 max-w-6xl mx-auto w-full grid md:grid-cols-2 gap-16 items-center">
 
         {/* Lado Esquerdo: Texto */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
-          className="text-center md:text-left space-y-2 sm:space-y-6"
+          className="text-center md:text-left space-y-8"
         >
           {/* Todo o conteúdo de texto permanece igual (h1, h2, p, botões, ícones) */}
           <div>
             <motion.h1
-              className="text-xl sm:text-3xl md:text-6xl lg:text-8xl font-black leading-tight neon-text"
+              className="text-5xl md:text-7xl lg:text-8xl font-black leading-tight neon-text"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8 }}
@@ -76,7 +76,7 @@ export default function Hero() {
             </motion.h1>
 
             <motion.h2
-              className="text-base sm:text-xl md:text-3xl font-bold text-cyan-300 mt-2 sm:mt-4 h-8 sm:h-10"
+              className="text-3xl md:text-4xl font-bold text-cyan-300 mt-6 h-12"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1.2 }}
@@ -92,7 +92,7 @@ export default function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.6, duration: 1 }}
-            className="text-xs sm:text-sm md:text-lg text-slate-300 max-w-lg mx-auto md:mx-0 leading-relaxed"
+            className="text-lg md:text-xl text-slate-300 max-w-lg mx-auto md:mx-0 leading-relaxed"
           >
             {summary}
           </motion.p>
@@ -102,7 +102,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.8 }}
-            className="flex flex-wrap gap-2 sm:gap-4 justify-center md:justify-start pt-2 sm:pt-4"
+            className="flex flex-wrap gap-5 justify-center md:justify-start pt-6"
           >
             <Link
               href="#contact"
@@ -121,7 +121,7 @@ export default function Hero() {
             </Link>
           </motion.div>
 
-          <div className="flex justify-center items-center gap-2 sm:gap-6 mt-2 sm:mt-6">
+          <div className="flex justify-center items-center gap-8 mt-8">
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
