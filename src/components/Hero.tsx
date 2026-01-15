@@ -35,23 +35,23 @@ export default function Hero() {
   const rotateY = useTransform(mouseX, [-300, 300], [-10, 10]);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 sm:px-6 py-12 sm:py-24 bg-[radial-gradient(ellipse_at_top_left,var(--cyan-glow-soft),transparent_70%)]">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-2 sm:px-6 py-8 sm:py-24 bg-[radial-gradient(ellipse_at_top_left,var(--cyan-glow-soft),transparent_70%)]">
       {/* Partículas ciano flutuando */}
       <Particles count={12} />
 
-      <div className="relative z-10 max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
+      <div className="relative z-10 max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8 md:gap-16 items-center">
 
         {/* Lado Esquerdo: Texto */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
-          className="text-center md:text-left space-y-6 sm:space-y-8"
+          className="text-center md:text-left space-y-4 sm:space-y-8"
         >
           {/* Todo o conteúdo de texto permanece igual (h1, h2, p, botões, ícones) */}
           <div>
             <motion.h1
-              className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-black leading-tight neon-text"
+              className="text-2xl sm:text-4xl md:text-6xl lg:text-8xl font-black leading-tight neon-text"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8 }}
@@ -76,7 +76,7 @@ export default function Hero() {
             </motion.h1>
 
             <motion.h2
-              className="text-3xl md:text-4xl font-bold text-cyan-300 mt-6 h-12"
+              className="text-lg sm:text-2xl md:text-4xl font-bold text-cyan-300 mt-4 sm:mt-6 h-10 sm:h-12"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1.2 }}
@@ -92,7 +92,7 @@ export default function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.6, duration: 1 }}
-            className="text-lg md:text-xl text-slate-300 max-w-lg mx-auto md:mx-0 leading-relaxed"
+            className="text-sm sm:text-base md:text-xl text-slate-300 max-w-lg mx-auto md:mx-0 leading-relaxed"
           >
             {summary}
           </motion.p>
@@ -102,7 +102,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.8 }}
-            className="flex flex-wrap gap-5 justify-center md:justify-start pt-6"
+            className="flex flex-wrap gap-3 sm:gap-5 justify-center md:justify-start pt-4 sm:pt-6"
           >
             <Link
               href="#contact"
@@ -121,31 +121,33 @@ export default function Hero() {
             </Link>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 2 }}
-            className="flex gap-8 justify-center md:justify-start pt-8"
-          >
-              {[Mail, Linkedin, Github].map((Icon, i) => (
-                <motion.a
-                  key={i}
-                  href={
-                    Icon === Mail
-                      ? `mailto:${contact.email}`
-                      : Icon === Linkedin
-                          ? contact.linkedin
-                          : contact.github
-                  }
-                  target={Icon !== Mail ? "_blank" : undefined}
-                  className="text-slate-400 hover:text-cyan-300 transition-all duration-200"
-                  whileHover={{ scale: 1.4, rotate: i % 2 === 0 ? 15 : -15 }}
-                  whileTap={{ scale: 0.9 }}
-                >
-                  <Icon size={32} />
-                </motion.a>
-              ))}
-          </motion.div>
+          <div className="flex justify-center items-center gap-4 sm:gap-8 mt-4 sm:mt-8">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 2 }}
+              className="flex gap-8 justify-center md:justify-start pt-8"
+            >
+                {[Mail, Linkedin, Github].map((Icon, i) => (
+                  <motion.a
+                    key={i}
+                    href={
+                      Icon === Mail
+                        ? `mailto:${contact.email}`
+                        : Icon === Linkedin
+                            ? contact.linkedin
+                            : contact.github
+                    }
+                    target={Icon !== Mail ? "_blank" : undefined}
+                    className="text-slate-400 hover:text-cyan-300 transition-all duration-200"
+                    whileHover={{ scale: 1.4, rotate: i % 2 === 0 ? 15 : -15 }}
+                    whileTap={{ scale: 0.9 }}
+                  >
+                    <Icon size={32} />
+                  </motion.a>
+                ))}
+            </motion.div>
+          </div>
         </motion.div>
 
         {/* LADO DIREITO: FOTO ESTÁVEL COM AURÉOLAS ANIMADAS */}

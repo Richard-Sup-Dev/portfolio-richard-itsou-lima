@@ -59,8 +59,8 @@ export default function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-slate-900/80 backdrop-blur-md shadow-md transition-all duration-200 border-b-2 border-cyan-800/40 w-full">
-      <nav className="container mx-auto flex flex-wrap items-center justify-between px-4 py-4">
+    <header className="sticky top-0 z-50 bg-slate-900/80 backdrop-blur-md shadow-md transition-all duration-200 border-b-2 border-cyan-800/40 w-full text-base sm:text-lg">
+      <nav className="container mx-auto flex flex-wrap items-center justify-between px-2 sm:px-4 py-3 sm:py-4">
         {/* Logo */}
         <Link 
           href="/" 
