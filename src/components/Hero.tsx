@@ -41,60 +41,12 @@ export default function Hero() {
 
       <div className="relative z-10 max-w-6xl mx-auto w-full grid md:grid-cols-2 gap-16 items-center">
 
-        {/* Foto primeiro no mobile, texto depois */}
-        <div className="order-1 md:order-2 w-full flex justify-center items-center mt-10 xs:mt-0">
-          {/* ORBIT WRAPPER: container quadrado fixo */}
-          <div className="relative w-52 h-52 xs:w-72 xs:h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 lg:w-110 lg:h-110 aspect-square flex items-center justify-center">
-            {/* Auréola externa pulsante (grande e visível) */}
-            <div className="absolute -inset-7.5 rounded-full border-4 border-cyan-400/50 shadow-[0_0_50px_rgba(6,182,212,0.8)] animate-pulse opacity-80" />
-            {/* Ondas expansivas (se mexem claramente) */}
-            <div className="absolute -inset-2.5 rounded-full border-3 border-cyan-300/70 animate-wave" />
-            <div className="absolute -inset-2.5 rounded-full border-3 border-cyan-400/60 animate-wave delay-1000" />
-            {/* Anéis holográficos girando (movimento constante e suave) */}
-            <div className="absolute inset-4 rounded-full border-t-4 border-l-4 border-cyan-500/80 animate-hologram" />
-            <div className="absolute inset-8 rounded-full border-b-4 border-r-4 border-cyan-300/70 animate-hologram" style={{ animationDirection: 'reverse' }} />
-            {/* Foto ESTÁVEL com parallax (sem float no container) */}
-            <motion.div
-              onMouseMove={(e) => {
-                const rect = e.currentTarget.getBoundingClientRect();
-                mouseX.set(e.clientX - rect.left - rect.width / 2);
-                mouseY.set(e.clientY - rect.top - rect.height / 2);
-              }}
-              onMouseLeave={() => {
-                mouseX.set(0);
-                mouseY.set(0);
-              }}
-              style={{
-                rotateX,
-                rotateY,
-                transformStyle: "preserve-3d",
-              }}
-              className="relative w-full h-full"
-            >
-              {/* Glow principal */}
-              <div className="absolute inset-0 rounded-full bg-cyan-400/40 blur-3xl animate-pulse" />
-              {/* Moldura e imagem */}
-              <div className="relative w-full h-full rounded-full overflow-hidden border-8 border-cyan-300 shadow-[0_0_80px_rgba(6,182,212,0.9)]">
-                <Image
-                  src="/Richard.jpg"
-                  alt="Richard Itsou Lima"
-                  fill
-                  className="object-cover scale-110 transition-transform duration-700 group-hover:scale-115"
-                  priority
-                />
-                {/* Scanlines */}
-                <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(6,182,212,0.1)_50%)] bg-size-[100%_4px] pointer-events-none opacity-60" />
-              </div>
-            </motion.div>
-          </div>
-        </div>
-
-        {/* Lado direito: texto de apresentação */}
+        {/* Lado esquerdo: texto de apresentação */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
-          className="order-2 md:order-1 text-center md:text-left space-y-8"
+          className="text-center md:text-left space-y-8"
         >
           {/* Título, subtítulo, descrição e botões */}
           <div>
