@@ -1,4 +1,4 @@
-// Dados de projetos e skills para exibição no portfólio
+// Projetos e habilidades para mostrar no portfólio
 
 import { Project } from "@/types/project.type";
 import { Skill } from "@/types/skill.type";
@@ -10,7 +10,7 @@ export const mockProjects: Project[] = [
     techStack: ["React", "Node.js", "PostgreSQL", "Tailwind CSS"],
     githubUrl: "https://github.com/Richard-Sup-Dev/ecoconnect",
     liveUrl: "https://ecoconnect.app",
-    thumbnail: "/projects/ecoconnect.jpg", // Imagem do projeto (adicione uma imagem real depois se quiser)
+    thumbnail: "/projects/ecoconnect.jpg", // Imagem do projeto (pode trocar por uma real depois)
   },
   {
     title: "Financial Flow",
@@ -18,12 +18,12 @@ export const mockProjects: Project[] = [
     techStack: ["React Native", "Firebase", "TypeScript"],
     githubUrl: "https://github.com/Richard-Sup-Dev/financial-flow",
     liveUrl: "https://play.google.com/financialflow",
-    thumbnail: "/projects/financialflow.jpg", // Imagem do projeto (adicione uma imagem real depois se quiser)
+    thumbnail: "/projects/financialflow.jpg", // Imagem do projeto (pode trocar por uma real depois)
   },
 ];
 
 export const mockSkills: Skill[] = [
-  // Skills separadas por categoria para exibição organizada
+  // Skills separadas por categoria para facilitar a visualização
   { name: "TypeScript", icon: "/skills/TypeScript.png", category: "Frontend" },
   { name: "Next.js", icon: "/skills/Next.js.png", category: "Frontend" },
   { name: "React", icon: "/skills/React.png", category: "Frontend" },

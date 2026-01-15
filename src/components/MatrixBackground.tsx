@@ -19,14 +19,14 @@ export default function MatrixBackground() {
     resize();
     window.addEventListener('resize', resize);
 
-    const chars = "01"; // Só 0 e 1 pra ficar clássico Matrix
+    const chars = "01"; // Só 0 e 1 para dar aquele clima clássico do Matrix
     const charsArray = chars.split('');
     const fontSize = 16;
     let columns = canvas.width / fontSize;
     const drops: number[] = new Array(Math.floor(columns)).fill(1);
 
     const draw = () => {
-      ctx.fillStyle = 'rgba(0, 0, 0, 0.05)'; // Fade suave
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.05)'; // Deixa o efeito de rastro suave
       ctx.fillRect(0, 0, canvas.width, canvas.height);
       ctx.fillStyle = '#a855f7'; 
       ctx.font = `${fontSize}px monospace`;
@@ -40,7 +40,7 @@ export default function MatrixBackground() {
       }
     };
 
-    const interval = setInterval(draw, 40); // Suave e leve
+    const interval = setInterval(draw, 40); // Mantém o efeito leve e fluido
 
     return () => {
       clearInterval(interval);

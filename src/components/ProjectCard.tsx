@@ -20,16 +20,16 @@ export default function ProjectCard({ project }: ProjectCardProps) {
       whileHover={{ scale: 1.03 }}
       transition={{ type: "spring", stiffness: 300, damping: 30 }}
     >
-      {/* Imagem do Projeto (Thumbnail) */}
+      {/* Imagem principal do projeto, em destaque */}
       <div className="relative h-64 md:h-72 overflow-hidden">
         <Image
-          src={project.thumbnail || "/placeholder-project.jpg"} // Você vai adicionar thumbnails reais em public/
+          src={project.thumbnail || "/placeholder-project.jpg"} // Se não tiver imagem, mostra uma padrão
           alt={`Thumbnail do projeto ${project.title}`}
           fill
           className="object-cover transition-transform duration-700 group-hover:scale-110"
         />
         
-        {/* Overlay escuro com título no hover */}
+        {/* Efeito escurecido e título aparecem ao passar o mouse */}
         <div className="absolute inset-0 bg-linear-to-t from-slate-900 via-transparent to-transparent opacity-70" />
         <div className="absolute bottom-0 left-0 p-6 translate-y-8 group-hover:translate-y-0 transition-transform duration-500">
           <h3 className="text-2xl font-bold text-cyan-400 drop-shadow-lg">
@@ -38,13 +38,13 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         </div>
       </div>
 
-      {/* Conteúdo do Card */}
+      {/* Descrição e detalhes do projeto logo abaixo da imagem */}
       <div className="p-6 space-y-4">
         <p className="text-slate-300 leading-relaxed">
           {project.description}
         </p>
 
-        {/* Stack de Tecnologia */}
+        {/* Lista das tecnologias usadas nesse projeto */}
         <div className="flex flex-wrap gap-2">
           {project.techStack.map((tech) => {
             const badgeColors: Record<string, string> = {
@@ -67,7 +67,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           })}
         </div>
 
-        {/* Links de Ação */}
+        {/* Links para o GitHub e, se disponível, para o site ao vivo */}
         <div className="flex gap-6 pt-4">
           <Link
             href={project.githubUrl.replace('github.com/richardlima', 'github.com/Richard-Sup-Dev')}

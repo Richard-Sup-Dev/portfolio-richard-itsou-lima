@@ -1,11 +1,11 @@
-// src/types/project.type.ts
+// Tipagem para os projetos do portfólio
 
 export interface Project {
     title: string;
     description: string;
     techStack: string[];
     githubUrl: string;
-    liveUrl?: string; // Opcional, se o projeto tiver um link ao vivo
-    thumbnail?: string; // Opcional, se o projeto tiver uma miniatura
-    imageUrl?: string; // Opcional
+    liveUrl?: string; // Link do projeto ao vivo (opcional)
+    thumbnail?: string; // Miniatura do projeto (opcional)
+    imageUrl?: string; // Imagem extra (opcional)
 }

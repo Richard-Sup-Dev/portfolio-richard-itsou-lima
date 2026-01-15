@@ -13,7 +13,7 @@ export default function Footer() {
     <footer id="contact" className="bg-linear-to-t from-slate-950 to-slate-900 border-t border-cyan-900/50 mt-20 shadow-lg" aria-labelledby="contact-title">
       <div className="container mx-auto px-2 sm:px-4 py-6 sm:py-16">
         
-        {/* Título animado ao entrar na seção */}
+        {/* Título animado quando a seção aparece */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -29,7 +29,7 @@ export default function Footer() {
           </p>
         </motion.div>
 
-        {/* Contato principal (e-mail e WhatsApp) */}
+        {/* Contatos principais: e-mail e WhatsApp */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -62,7 +62,7 @@ export default function Footer() {
           )}
         </motion.div>
 
-        {/* Links Sociais com hover premium */}
+        {/* Links das redes sociais com efeito de destaque ao passar o mouse */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -93,10 +93,10 @@ export default function Footer() {
           </motion.div>
         </motion.div>
 
-        {/* Linha separadora sutil */}
+        {/* Linha de separação discreta para organizar visualmente */}
         <div className="w-full max-w-md mx-auto h-px bg-linear-to-r from-transparent via-cyan-800 to-transparent mb-8" />
 
-        {/* Copyright com estilo */}
+        {/* Aviso de direitos autorais com um toque especial */}
         <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}

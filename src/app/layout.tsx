@@ -1,4 +1,4 @@
-// src/app/layout.tsx 
+// Layout principal do app Next.js
 
 import type { Metadata } from "next";
 import Header from "@/components/Header"; 
@@ -7,7 +7,7 @@ import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
-// Metadados ajustados
+// Metadados do site (ajuste conforme necessário)
 export const metadata: Metadata = {
   title: "Richard Lima | Desenvolvedor Full Stack",
   description: "Portfólio de Richard Itsou Lima, Desenvolvedor Full Stack em React e Next.js.",
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Richard Lima | Desenvolvedor Full Stack",
     description: "Portfólio de Richard Itsou Lima, projetos, skills e certificações.",
-    url: "https://richard.dev", // ajuste para seu domínio real
+    url: "https://richard.dev", // Troque para seu domínio real se necessário
     siteName: "Richard Lima Portfolio",
     images: [
       {
@@ -47,7 +47,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    // Versão Limpa para evitar erros de hidratação
+    // Estrutura limpa para evitar problemas de hidratação do React
     <html lang="pt-BR" className="scroll-smooth" suppressHydrationWarning>
       <head>
             <meta charSet="utf-8" />

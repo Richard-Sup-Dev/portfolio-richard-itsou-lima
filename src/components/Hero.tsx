@@ -11,7 +11,7 @@ import Particles from './Particles';
 export default function Hero() {
   const { name, role, summary, contact } = profileData;
 
-  // Efeito de digitação no cargo
+  // Faz o efeito de digitação animada no cargo
   const [displayedRole, setDisplayedRole] = useState("");
   const fullRole = role;
 
@@ -28,7 +28,7 @@ export default function Hero() {
     return () => clearInterval(interval);
   }, [fullRole]);
 
-  // Parallax com o mouse
+  // Parallax: mexe a foto conforme o mouse se move
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
   const rotateX = useTransform(mouseY, [-300, 300], [10, -10]);
@@ -36,19 +36,19 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-6 py-24 bg-[radial-gradient(ellipse_at_top_left,var(--cyan-glow-soft),transparent_70%)]">
-      {/* Partículas animadas de fundo */}
+      {/* Fundo com partículas animadas para dar vida à seção */}
       <Particles count={12} />
 
       <div className="relative z-10 max-w-6xl mx-auto w-full grid md:grid-cols-2 gap-16 items-center">
 
-        {/* Lado esquerdo: texto de apresentação */}
+        {/* Lado esquerdo: apresentação e texto principal */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
           className="order-2 md:order-1 text-center md:text-left space-y-8"
         >
-          {/* Título, subtítulo, descrição e botões */}
+          {/* Título, cargo, resumo e botões de ação */}
           <div>
             <motion.h1
               className="text-3xl xs:text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black leading-tight neon-text"
@@ -97,7 +97,7 @@ export default function Hero() {
             {summary}
           </motion.p>
 
-          {/* Botões de contato e redes sociais */}
+          {/* Botões para contato e GitHub */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -122,26 +122,26 @@ export default function Hero() {
             </Link>
           </motion.div>
 
-          {/* Ícones sociais removidos para evitar duplicidade (já existem no Footer e Fale Comigo) */}
+          {/* Ícones sociais removidos para não repetir (já aparecem no Footer e Fale Comigo) */}
         </motion.div>
 
-        {/* LADO DIREITO: FOTO ESTÁVEL COM AURÉOLAS ANIMADAS */}
+        {/* Lado direito: foto com efeitos animados ao redor */}
         <div className="order-1 md:order-2 relative flex justify-center items-center mt-10 xs:mt-0">
-          {/* ORBIT WRAPPER: container quadrado fixo */}
+          {/* Container fixo para os efeitos orbitais e a foto */}
           <div className="relative w-52 h-52 xs:w-72 xs:h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 lg:w-110 lg:h-110 aspect-square flex items-center justify-center">
 
-            {/* Auréola externa pulsante (grande e visível) */}
+            {/* Auréola externa que pulsa para destacar a foto */}
             <div className="absolute -inset-7.5 rounded-full border-4 border-cyan-400/50 shadow-[0_0_50px_rgba(6,182,212,0.8)] animate-pulse opacity-80" />
 
-            {/* Ondas expansivas (se mexem claramente) */}
+            {/* Ondas animadas que se expandem ao redor da foto */}
             <div className="absolute -inset-2.5 rounded-full border-3 border-cyan-300/70 animate-wave" />
             <div className="absolute -inset-2.5 rounded-full border-3 border-cyan-400/60 animate-wave delay-1000" />
 
-            {/* Anéis holográficos girando (movimento constante e suave) */}
+            {/* Anéis holográficos girando para dar um efeito moderno */}
             <div className="absolute inset-4 rounded-full border-t-4 border-l-4 border-cyan-500/80 animate-hologram" />
             <div className="absolute inset-8 rounded-full border-b-4 border-r-4 border-cyan-300/70 animate-hologram" style={{ animationDirection: 'reverse' }} />
 
-            {/* Foto ESTÁVEL com parallax (sem float no container) */}
+            {/* Foto centralizada com efeito de parallax ao mover o mouse */}
             <motion.div
               onMouseMove={(e) => {
                 const rect = e.currentTarget.getBoundingClientRect();
@@ -159,10 +159,10 @@ export default function Hero() {
               }}
               className="relative w-full h-full"
             >
-              {/* Glow principal */}
+              {/* Efeito de brilho principal ao redor da foto */}
               <div className="absolute inset-0 rounded-full bg-cyan-400/40 blur-3xl animate-pulse" />
 
-              {/* Moldura e imagem */}
+              {/* Moldura da foto e a imagem em si */}
               <div className="relative w-full h-full rounded-full overflow-hidden border-8 border-cyan-300 shadow-[0_0_80px_rgba(6,182,212,0.9)]">
                 <Image
                   src="/Richard.jpg"
@@ -171,7 +171,7 @@ export default function Hero() {
                   className="object-cover scale-110 transition-transform duration-700 group-hover:scale-115"
                   priority
                 />
-                {/* Scanlines */}
+                {/* Efeito de linhas (scanlines) para dar um toque retrô */}
                 <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(6,182,212,0.1)_50%)] bg-size-[100%_4px] pointer-events-none opacity-60" />
               </div>
             </motion.div>

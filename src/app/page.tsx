@@ -14,17 +14,17 @@ import Testimonials from "@/components/Testimonials";
 export default function Home() {
   return (
     <div className="relative">
-      {/* Fundo Matrix em TODO o site */}
+      {/* Fundo Matrix aparecendo em todo o site */}
       <MatrixBackground />
 
-      {/* Overlay escuro pra tudo destacar (ajusta /50 pra mais ou menos opacidade) */}
+      {/* Overlay escuro para destacar o conteúdo (ajuste a opacidade conforme preferir) */}
       <div className="fixed inset-0 bg-black/60 -z-40 pointer-events-none" />
 
-      {/* Conteúdo normal */}
+      {/* Conteúdo principal do site */}
       <div className="relative z-10">
         <Hero />
 
-        {/* Sobre Mim */}
+        {/* Seção Sobre Mim */}
         <section id="about" className="container mx-auto px-4 py-20 flex flex-col md:flex-row items-center gap-12 max-w-5xl">
           <div className="flex-1 flex justify-center md:justify-start">
             <img
@@ -67,7 +67,7 @@ export default function Home() {
 
         <div className="border-t border-cyan-800/50 my-20 mx-auto max-w-6xl"></div>
 
-        {/* Seção de Certificações */}
+        {/* Seção de Certificações (destaque para conquistas) */}
         <section id="certifications" className="container mx-auto px-4 py-20">
           <motion.h2
             initial={{ opacity: 0, y: -30 }}

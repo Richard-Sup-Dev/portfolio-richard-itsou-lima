@@ -4,7 +4,7 @@ import { mockSkills } from '@/components/data/mock-data';
 import Image from 'next/image';
 import { motion, easeOut } from 'framer-motion';
 
-// Animação do container para exibir as skills em sequência
+// Animação para exibir as skills uma a uma
 const container = {
   hidden: { opacity: 0 },
   visible: {
@@ -16,7 +16,7 @@ const container = {
   },
 };
 
-// Animação individual de cada skill
+// Animação de entrada de cada skill
 const item = {
   hidden: { opacity: 0, y: 40 },
   visible: {
@@ -27,7 +27,7 @@ const item = {
 };
 
 export default function Skills() {
-  // Categorias para agrupar as skills
+  // Categorias principais
   const categories = ["Frontend", "Backend", "DevOps"];
   return (
     <section id="skills" className="container mx-auto px-1 sm:px-4 py-8 sm:py-20 bg-[radial-gradient(ellipse_at_bottom_right,var(--cyan-glow-soft),transparent_70%)] rounded-2xl shadow-2xl" aria-labelledby="skills-title">
@@ -56,7 +56,7 @@ export default function Skills() {
                 <motion.div
                   key={skill.name}
                   variants={item}
-                  className="group relative bg-slate-800/60 rounded-xl sm:rounded-2xl p-2 xs:p-3 sm:p-6 flex flex-col items-center justify-center shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-2 overflow-hidden border border-cyan-800/40 focus-within:ring-2 focus-within:ring-cyan-400 min-h-[120px] sm:min-h-[160px]"
+                  className="group relative bg-slate-800/60 rounded-xl sm:rounded-2xl p-2 xs:p-3 sm:p-6 flex flex-col items-center justify-center shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-2 overflow-hidden border border-cyan-800/40 focus-within:ring-2 focus-within:ring-cyan-400 min-h-30 sm:min-h-40"
                   tabIndex={0}
                   aria-label={`Skill: ${skill.name}`}
                   whileHover={{
@@ -64,7 +64,7 @@ export default function Skills() {
                     transition: { duration: 0.3, ease: "easeOut" },
                   }}
                 >
-                  {/* Efeito de brilho ao passar o mouse */}
+                  {/* Brilho ao passar o mouse */}
                   <div className="absolute inset-0 rounded-xl sm:rounded-2xl bg-cyan-500/10 scale-0 opacity-0 group-hover:scale-105 group-hover:opacity-80 transition-all duration-400 pointer-events-none" />
                   {/* Ícone da skill */}
                   <div className="relative z-10 w-12 h-12 xs:w-16 xs:h-16 sm:w-20 sm:h-20 mb-2 xs:mb-3 sm:mb-4" aria-hidden="true">

@@ -17,7 +17,7 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
 
-  // Atualiza o link ativo conforme a rolagem da página
+  // Marca o link do menu conforme você rola a página
   useEffect(() => {
     const handleScroll = () => {
       const sections = navLinks
@@ -33,7 +33,7 @@ export default function Header() {
         })
         .filter((section): section is { id: string; top: number; bottom: number } => section !== null);
 
-      const scrollY = window.scrollY + window.innerHeight / 4; // Ativa antes do topo
+      const scrollY = window.scrollY + window.innerHeight / 4; // Ativa o destaque um pouco antes de chegar no topo
       let current = 'hero';
       for (let i = 0; i < sections.length; i++) {
         const currentSection = sections[i];
@@ -54,22 +54,22 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Atualiza o link ativo ao clicar
+  // Atualiza o destaque do menu ao clicar
   const handleNavClick = (id: string) => {
     setActiveSection(id);
   };
 
   return (
     <>
-      {/* Header Mobile (aparece só em telas pequenas) */}
+      {/* Menu mobile (só aparece no celular) */}
       <div className="md:hidden">
         <HeaderMobile onMenuClick={() => setIsOpen(true)} />
-        {/* Drawer lateral */}
+        {/* Menu lateral que desliza da direita */}
         {isOpen && (
           <div className="fixed inset-0 z-50 flex">
-            {/* Overlay escuro */}
+            {/* Fundo escuro para dar foco ao menu aberto */}
             <div className="fixed inset-0 bg-black/60 backdrop-blur-sm" onClick={() => setIsOpen(false)} />
-            {/* Menu lateral */}
+            {/* Aqui fica o menu lateral com os links */}
             <nav className="relative ml-auto w-64 max-w-[80vw] h-full bg-slate-900 border-l-2 border-cyan-800/40 shadow-2xl flex flex-col p-6 animate-slide-in">
               <button
                 className="self-end mb-8 text-cyan-400 p-2 rounded-lg hover:bg-slate-800 transition"
@@ -99,17 +99,17 @@ export default function Header() {
           </div>
         )}
       </div>
-      {/* Header Desktop (aparece só em telas médias e grandes) */}
+      {/* Menu desktop (aparece em telas médias e grandes) */}
       <header className="hidden md:block sticky top-0 z-50 bg-slate-900/80 backdrop-blur-md shadow-md transition-all duration-200 border-b-2 border-cyan-800/40 w-full">
         <nav className="container mx-auto flex items-center justify-between px-4 py-4">
-          {/* Logo */}
+          {/* Logo do site */}
           <Link 
             href="/" 
             className="text-2xl md:text-3xl font-extrabold text-cyan-400 hover:text-cyan-300 transition-all duration-200 neon-text"
           >
             Richard Itsou Lima
           </Link>
-          {/* Links Desktop */}
+          {/* Links do menu para desktop */}
           <div className="flex items-center space-x-6 lg:space-x-10">
             {navLinks.map((link) => {
               const id = link.href.replace('#', '');

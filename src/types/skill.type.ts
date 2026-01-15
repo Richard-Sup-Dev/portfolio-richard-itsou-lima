@@ -1,4 +1,4 @@
-// src/types/skill.type.ts
+// Tipagem para as skills exibidas no portfólio
 
 export interface Skill {
     name: string;
