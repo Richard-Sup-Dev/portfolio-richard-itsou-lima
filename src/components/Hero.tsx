@@ -102,21 +102,22 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.8 }}
-            className="flex flex-col xs:flex-row flex-wrap gap-4 xs:gap-5 justify-center md:justify-start pt-4 md:pt-6"
+            className="flex flex-col xs:flex-row gap-4 xs:gap-6 justify-center md:justify-start pt-4 md:pt-6 w-full max-w-xs xs:max-w-md mx-auto"
           >
             <Link
               href="#contact"
-              className="px-6 py-3 xs:px-8 xs:py-4 bg-cyan-500/10 border border-cyan-400/40 text-cyan-300 font-bold rounded-xl hover:bg-cyan-500/20 hover:border-cyan-300 transition-all duration-300 group relative overflow-hidden shadow-md text-base xs:text-lg"
+              className="flex-1 min-w-35 flex items-center justify-center gap-2 px-6 py-3 xs:px-8 xs:py-4 bg-cyan-400 text-slate-900 font-bold rounded-xl shadow-lg hover:bg-cyan-300 hover:text-slate-900 transition-all duration-300 text-base xs:text-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
             >
-              <span className="relative z-10">Fale Comigo</span>
-              <div className="absolute inset-0 bg-linear-to-r from-cyan-500/30 to-transparent -translate-x-full group-hover:translate-x-0 transition-transform duration-400" />
+              <Mail size={20} className="inline-block mb-0.5 mr-1" />
+              Fale Comigo
             </Link>
 
             <Link
               href={contact.github}
               target="_blank"
-              className="px-6 py-3 xs:px-8 xs:py-4 border border-slate-500 text-slate-200 font-semibold rounded-xl hover:border-cyan-400 hover:text-cyan-300 hover:bg-cyan-400/10 transition-all duration-300 shadow text-base xs:text-lg"
+              className="flex-1 min-w-35 flex items-center justify-center gap-2 px-6 py-3 xs:px-8 xs:py-4 bg-slate-800 text-cyan-300 font-bold rounded-xl shadow-lg border border-cyan-400/40 hover:bg-cyan-900 hover:text-cyan-200 hover:border-cyan-300 transition-all duration-300 text-base xs:text-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
             >
+              <Github size={20} className="inline-block mb-0.5 mr-1" />
               Ver GitHub
             </Link>
           </motion.div>
