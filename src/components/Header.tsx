@@ -38,9 +38,9 @@ export default function Header() {
         const currentSection = sections[i];
         const nextSection = sections[i + 1];
         if (
-          currentSection &&
+          currentSection !== null &&
           scrollY >= currentSection.top &&
-          scrollY < (nextSection ? nextSection.top : Infinity)
+          scrollY < (nextSection?.top ?? Infinity)
         ) {
           current = currentSection.id;
           break;
