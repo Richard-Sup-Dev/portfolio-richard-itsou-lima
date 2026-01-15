@@ -19,17 +19,18 @@ export default function Header() {
   // Detecta qual seção está na tela e destaca o link
   useEffect(() => {
     const handleScroll = () => {
-      const sections = navLinks.map(link => {
-        const el = document.querySelector(link.href);
-        if (!el) return null;
-        const rect = el.getBoundingClientRect();
-        if (!rect) return null;
-        return {
-          id: link.href.replace('#', ''),
-          top: rect.top + window.scrollY,
-          bottom: rect.bottom + window.scrollY
-        };
-      }).filter(Boolean);
+      const sections = navLinks
+        .map(link => {
+          const el = document.querySelector(link.href);
+          if (!el) return null;
+          const rect = el.getBoundingClientRect();
+          return {
+            id: link.href.replace('#', ''),
+            top: rect.top + window.scrollY,
+            bottom: rect.bottom + window.scrollY
+          };
+        })
+        .filter((section): section is { id: string; top: number; bottom: number } => section !== null);
 
       const scrollY = window.scrollY + window.innerHeight / 4; // offset para ativar antes do topo
       let current = 'hero';
