@@ -11,7 +11,7 @@ export default function Footer() {
 
   return (
     <footer id="contact" className="bg-linear-to-t from-slate-950 to-slate-900 border-t border-cyan-900/50 mt-20 shadow-lg" aria-labelledby="contact-title">
-      <div className="container mx-auto px-4 py-16">
+      <div className="container mx-auto px-4 py-10 sm:py-16">
         
         {/* Título com animação suave ao entrar na seção */}
         <motion.div
@@ -21,10 +21,10 @@ export default function Footer() {
           transition={{ duration: 0.4 }}
           className="text-center mb-12"
         >
-          <h2 id="contact-title" className="text-4xl md:text-5xl font-extrabold text-cyan-400 mb-6 neon-text">
+          <h2 id="contact-title" className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-cyan-400 mb-6 neon-text">
             Vamos Conversar!
           </h2>
-          <p className="text-lg md:text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed neon-text">
+          <p className="text-base sm:text-lg md:text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed neon-text">
             Tenho experiência em resolver desafios complexos e criar soluções performáticas. 
             Se você tem um projeto em mente, entre em contato.
           </p>
@@ -36,7 +36,7 @@ export default function Footer() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1, duration: 0.4 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-8 mb-12"
+          className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-8 mb-12"
         >
           <Link
             href={`mailto:${contact.email}`}

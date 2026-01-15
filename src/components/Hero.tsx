@@ -35,23 +35,23 @@ export default function Hero() {
   const rotateY = useTransform(mouseX, [-300, 300], [-10, 10]);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-6 py-24 bg-[radial-gradient(ellipse_at_top_left,var(--cyan-glow-soft),transparent_70%)]">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 sm:px-6 py-12 sm:py-24 bg-[radial-gradient(ellipse_at_top_left,var(--cyan-glow-soft),transparent_70%)]">
       {/* Partículas ciano flutuando */}
       <Particles count={12} />
 
-      <div className="relative z-10 max-w-6xl mx-auto w-full grid md:grid-cols-2 gap-16 items-center">
+      <div className="relative z-10 max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
 
         {/* Lado Esquerdo: Texto */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
-          className="text-center md:text-left space-y-8"
+          className="text-center md:text-left space-y-6 sm:space-y-8"
         >
           {/* Todo o conteúdo de texto permanece igual (h1, h2, p, botões, ícones) */}
           <div>
             <motion.h1
-              className="text-5xl md:text-7xl lg:text-8xl font-black leading-tight neon-text"
+              className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-black leading-tight neon-text"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8 }}

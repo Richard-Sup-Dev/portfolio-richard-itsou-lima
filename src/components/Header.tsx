@@ -59,8 +59,8 @@ export default function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-slate-900/80 backdrop-blur-md shadow-md transition-all duration-200 border-b-2 border-cyan-800/40">
-      <nav className="container mx-auto flex items-center justify-between px-4 py-4">
+    <header className="sticky top-0 z-50 bg-slate-900/80 backdrop-blur-md shadow-md transition-all duration-200 border-b-2 border-cyan-800/40 w-full">
+      <nav className="container mx-auto flex flex-wrap items-center justify-between px-4 py-4">
         {/* Logo */}
         <Link 
           href="/" 
@@ -70,7 +70,7 @@ export default function Header() {
         </Link>
 
         {/* Links Desktop */}
-        <div className="hidden md:flex items-center space-x-10">
+        <div className="hidden md:flex items-center space-x-6 lg:space-x-10">
           {navLinks.map((link) => {
             const id = link.href.replace('#', '');
             return (
@@ -109,8 +109,8 @@ export default function Header() {
 
       {/* Menu Mobile Dropdown */}
       {isOpen && (
-        <div className="md:hidden bg-slate-900/95 backdrop-blur-lg shadow-2xl">
-          <div className="flex flex-col py-4">
+        <div className="md:hidden bg-slate-900/95 backdrop-blur-lg shadow-2xl w-full">
+          <div className="flex flex-col py-4 w-full">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
