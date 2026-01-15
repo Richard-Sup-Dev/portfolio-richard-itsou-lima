@@ -35,8 +35,11 @@ export default function Header() {
       const scrollY = window.scrollY + window.innerHeight / 4; // offset para ativar antes do topo
       let current = 'hero';
       for (let i = 0; i < sections.length; i++) {
-        const { top, id } = sections[i];
-        const nextTop = sections[i + 1]?.top ?? Infinity;
+        const currentSection = sections[i];
+        const nextSection = sections[i + 1];
+        if (!currentSection) continue;
+        const { top, id } = currentSection;
+        const nextTop = nextSection ? nextSection.top : Infinity;
         if (scrollY >= top && scrollY < nextTop) {
           current = id;
           break;
