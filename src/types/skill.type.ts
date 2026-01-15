@@ -2,6 +2,6 @@
 
 export interface Skill {
     name: string;
-    // O 'icon' pode ser o nome de um componente de ícone para facilitar
-    icon: string; 
+    icon: string;
+    level: 'Básico' | 'Intermediário' | 'Avançado' | 'Especialista';
 }

@@ -6,11 +6,12 @@ import Link from 'next/link';
 import { Mail, Github, Linkedin } from 'lucide-react';
 import { motion, useMotionValue, useTransform } from 'framer-motion';
 import { useEffect, useState } from 'react';
+import Particles from './Particles';
 
 export default function Hero() {
   const { name, role, summary, contact } = profileData;
 
-  // Para efeito typewriter no cargo
+  // Typewriter no cargo (roda só uma vez)
   const [displayedRole, setDisplayedRole] = useState("");
   const fullRole = role;
 
@@ -27,43 +28,30 @@ export default function Hero() {
     return () => clearInterval(interval);
   }, [fullRole]);
 
-  // Mouse parallax sutil na foto
+  // Parallax com mouse
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
   const rotateX = useTransform(mouseY, [-300, 300], [10, -10]);
   const rotateY = useTransform(mouseX, [-300, 300], [-10, 10]);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-6 py-24">
-      {/* Partículas ciano flutuando (CSS puro - leve e performático) */}
-      <div className="absolute inset-0 pointer-events-none">
-        {[...Array(8)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute w-1 h-1 bg-cyan-400/60 rounded-full animate-float"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${i * 0.8}s`,
-              animationDuration: `${15 + i * 3}s`,
-              boxShadow: '0 0 10px rgba(6, 182, 212, 0.8)',
-            }}
-          />
-        ))}
-      </div>
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-6 py-24 bg-[radial-gradient(ellipse_at_top_left,var(--cyan-glow-soft),transparent_70%)]">
+      {/* Partículas ciano flutuando */}
+      <Particles count={12} />
 
       <div className="relative z-10 max-w-6xl mx-auto w-full grid md:grid-cols-2 gap-16 items-center">
 
-        {/* Texto */}
+        {/* Lado Esquerdo: Texto */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
           className="text-center md:text-left space-y-8"
         >
+          {/* Todo o conteúdo de texto permanece igual (h1, h2, p, botões, ícones) */}
           <div>
             <motion.h1
-              className="text-5xl md:text-7xl lg:text-8xl font-black leading-tight"
+              className="text-5xl md:text-7xl lg:text-8xl font-black leading-tight neon-text"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8 }}
@@ -71,7 +59,7 @@ export default function Hero() {
               <span className="text-slate-200">Olá, eu sou</span>
               <br />
               <motion.span
-                className="bg-gradient-to-r from-cyan-300 via-cyan-400 to-cyan-500 bg-clip-text text-transparent inline-block"
+                className="bg-linear-to-r from-cyan-300 via-cyan-400 to-cyan-500 bg-clip-text text-transparent inline-block neon-text"
                 initial={{ opacity: 0, x: -100 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.5, duration: 1.2, type: "spring" }}
@@ -87,7 +75,6 @@ export default function Hero() {
               </motion.span>
             </motion.h1>
 
-            {/* Cargo com efeito typewriter + glitch */}
             <motion.h2
               className="text-3xl md:text-4xl font-bold text-cyan-300 mt-6 h-12"
               initial={{ opacity: 0 }}
@@ -110,7 +97,7 @@ export default function Hero() {
             {summary}
           </motion.p>
 
-          {/* Botões */}
+          {/* Botões e ícones sociais (mantidos iguais) */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -119,94 +106,100 @@ export default function Hero() {
           >
             <Link
               href="#contact"
-              className="px-8 py-4 bg-cyan-500/20 backdrop-blur-md border border-cyan-400/50 text-cyan-300 font-bold rounded-xl hover:bg-cyan-500/30 hover:border-cyan-300 transition-all duration-500 group relative overflow-hidden"
+              className="px-8 py-4 bg-cyan-500/10 border border-cyan-400/40 text-cyan-300 font-bold rounded-xl hover:bg-cyan-500/20 hover:border-cyan-300 transition-all duration-300 group relative overflow-hidden shadow-md"
             >
               <span className="relative z-10">Fale Comigo</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/50 to-transparent translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-700" />
+              <div className="absolute inset-0 bg-linear-to-r from-cyan-500/30 to-transparent -translate-x-full group-hover:translate-x-0 transition-transform duration-400" />
             </Link>
 
             <Link
               href={contact.github}
               target="_blank"
-              className="px-8 py-4 border border-slate-500 text-slate-200 font-semibold rounded-xl hover:border-cyan-400 hover:text-cyan-300 hover:bg-cyan-400/10 transition-all duration-500"
+              className="px-8 py-4 border border-slate-500 text-slate-200 font-semibold rounded-xl hover:border-cyan-400 hover:text-cyan-300 hover:bg-cyan-400/10 transition-all duration-300 shadow"
             >
               Ver GitHub
             </Link>
           </motion.div>
 
-          {/* Ícones sociais com glow forte */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 2 }}
             className="flex gap-8 justify-center md:justify-start pt-8"
           >
-            {[Mail, Linkedin, Github].map((Icon, i) => (
-              <motion.div
-                key={i}
-                whileHover={{ scale: 1.4, rotate: i % 2 === 0 ? 15 : -15 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <Link
+              {[Mail, Linkedin, Github].map((Icon, i) => (
+                <motion.a
+                  key={i}
                   href={
                     Icon === Mail
                       ? `mailto:${contact.email}`
                       : Icon === Linkedin
-                        ? contact.linkedin
-                        : contact.github
+                          ? contact.linkedin
+                          : contact.github
                   }
                   target={Icon !== Mail ? "_blank" : undefined}
-                  className="text-slate-400 hover:text-cyan-300 transition-all duration-300"
-                  style={{
-                    filter: 'drop-shadow(0 0 15px rgba(6, 182, 212, 0.6))',
-                  }}
+                  className="text-slate-400 hover:text-cyan-300 transition-all duration-200"
+                  whileHover={{ scale: 1.4, rotate: i % 2 === 0 ? 15 : -15 }}
+                  whileTap={{ scale: 0.9 }}
                 >
                   <Icon size={32} />
-                </Link>
-              </motion.div>
-            ))}
+                </motion.a>
+              ))}
           </motion.div>
         </motion.div>
 
-        {/* Foto de Perfil Estilo Interface Futurista */}
-        <motion.div className="relative flex justify-center items-center">
+        {/* LADO DIREITO: FOTO ESTÁVEL COM AURÉOLAS ANIMADAS */}
+        <div className="relative flex justify-center items-center">
+          {/* ORBIT WRAPPER: container quadrado fixo */}
+          <div className="relative w-80 h-80 md:w-96 md:h-96 lg:w-110 lg:h-110 aspect-square flex items-center justify-center">
 
-          {/* Anéis de Onda Sonora (Pulsando de dentro para fora) */}
-          <div className="absolute w-[120%] h-[120%] rounded-full border border-cyan-500/30 animate-wave" />
-          <div className="absolute w-[120%] h-[120%] rounded-full border border-cyan-400/20 animate-wave delay-1000" />
+            {/* Auréola externa pulsante (grande e visível) */}
+            <div className="absolute -inset-7.5 rounded-full border-4 border-cyan-400/50 shadow-[0_0_50px_rgba(6,182,212,0.8)] animate-pulse opacity-80" />
 
-          {/* Anéis Holográficos que giram e mudam de forma (Morphing) */}
-          <div className="absolute w-[110%] h-[110%] border-t-2 border-l-2 border-cyan-500/40 animate-hologram" />
-          <div className="absolute w-[105%] h-[105%] border-b-2 border-r-2 border-cyan-300/30 animate-hologram" style={{ animationDirection: 'reverse' }} />
+            {/* Ondas expansivas (se mexem claramente) */}
+            <div className="absolute -inset-2.5 rounded-full border-3 border-cyan-300/70 animate-wave" />
+            <div className="absolute -inset-2.5 rounded-full border-3 border-cyan-400/60 animate-wave delay-1000" />
 
-          {/* Container Principal da Foto */}
-          <motion.div
-            style={{
-              rotateX,
-              rotateY,
-              transformStyle: "preserve-3d",
-              perspective: 1000
-            }}
-            className="relative w-72 h-72 md:w-96 md:h-96 aspect-square"
-          >
+            {/* Anéis holográficos girando (movimento constante e suave) */}
+            <div className="absolute inset-4 rounded-full border-t-4 border-l-4 border-cyan-500/80 animate-hologram" />
+            <div className="absolute inset-8 rounded-full border-b-4 border-r-4 border-cyan-300/70 animate-hologram" style={{ animationDirection: 'reverse' }} />
 
-            {/* Glow de fundo intenso */}
-            <div className="absolute inset-0 rounded-full bg-cyan-500/20 blur-3xl animate-pulse" />
+            {/* Foto ESTÁVEL com parallax (sem float no container) */}
+            <motion.div
+              onMouseMove={(e) => {
+                const rect = e.currentTarget.getBoundingClientRect();
+                mouseX.set(e.clientX - rect.left - rect.width / 2);
+                mouseY.set(e.clientY - rect.top - rect.height / 2);
+              }}
+              onMouseLeave={() => {
+                mouseX.set(0);
+                mouseY.set(0);
+              }}
+              style={{
+                rotateX,
+                rotateY,
+                transformStyle: "preserve-3d",
+              }}
+              className="relative w-full h-full"
+            >
+              {/* Glow principal */}
+              <div className="absolute inset-0 rounded-full bg-cyan-400/40 blur-3xl animate-pulse" />
 
-            {/* Moldura da Foto com Brilho Interno */}
-            <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-cyan-400 shadow-[0_0_50px_rgba(0,242,255,0.4)] z-10">
-              <Image
-                src="/Richard.jpg"
-                alt="Richard Itsou Lima"
-                fill
-                className="object-cover"
-                priority
-              />
-              {/* Overlay de Scanlines Tech */}
-              <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,255,255,0.05)_50%)] bg-[length:100%_4px] pointer-events-none opacity-50" />
-            </div>
-          </motion.div>
-        </motion.div>
+              {/* Moldura e imagem */}
+              <div className="relative w-full h-full rounded-full overflow-hidden border-8 border-cyan-300 shadow-[0_0_80px_rgba(6,182,212,0.9)]">
+                <Image
+                  src="/Richard.jpg"
+                  alt="Richard Itsou Lima"
+                  fill
+                  className="object-cover scale-110 transition-transform duration-700 group-hover:scale-115"
+                  priority
+                />
+                {/* Scanlines */}
+                <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(6,182,212,0.1)_50%)] bg-size-[100%_4px] pointer-events-none opacity-60" />
+              </div>
+            </motion.div>
+          </div>
+        </div>
       </div>
     </section>
   );

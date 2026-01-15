@@ -42,7 +42,7 @@ body {
 /* Flutuação suave */
 @keyframes float {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-15px); }
+  50% { transform: translateY(-8px); }
 }
 
 /* Rotação e Mudança de Forma (Efeito Equalizador/Holograma) */
@@ -68,7 +68,9 @@ body {
 }
 
 /* Classes utilitárias */
-.animate-float { animation: float 6s ease-in-out infinite; }
+.animate-float {
+  animation: float 10s ease-in-out infinite;
+}
 .animate-hologram { animation: morph-rotate 10s linear infinite; }
 .animate-wave { animation: audio-wave 3s cubic-bezier(0, 0, 0.2, 1) infinite; }
 
@@ -79,3 +81,18 @@ body {
 /* Seleção de texto neon */
 ::selection { background: var(--primary-cyan); color: #000; }
 
+.animate-wave {
+  animation: audio-wave 4s ease-in-out infinite;
+}
+
+.delay-1000 {
+  animation-delay: 1s;
+}
+
+.animate-hologram {
+  animation: morph-rotate 18s linear infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}

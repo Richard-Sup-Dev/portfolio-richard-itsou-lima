@@ -1,36 +1,142 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfólio - Richard Itsou Lima
 
-## Getting Started
+![Screenshot do Portfólio](./public/RichardCartoon.jpg)
+## Sobre o Projeto
+Portfólio profissional desenvolvido em Next.js, React e Tailwind CSS, com animações modernas, layout responsivo e informações completas sobre minha trajetória como desenvolvedor Full Stack.
 
-First, run the development server:
+## Tecnologias Utilizadas
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+- Framer Motion
 
+## Funcionalidades
+- Apresentação pessoal e profissional
+- Seção de projetos com cards animados
+- Skills técnicas
+- Certificações
+- Contato direto (e-mail, WhatsApp, LinkedIn, GitHub)
+- Página 404 personalizada
+- Loader animado
+- SEO otimizado e meta tags para redes sociais
+- Acessibilidade básica
+
+## Como rodar localmente
 ```bash
+# Instale as dependências
+npm install
+
+# Rode o projeto em modo desenvolvimento
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```
+Acesse http://localhost:3000 no navegador.
+
+## Estrutura de Pastas
+```
+public/         # Imagens, certificados, projetos
+src/app/        # Páginas principais
+src/components/ # Componentes reutilizáveis
+src/types/      # Tipos TypeScript
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Links Importantes
+- [LinkedIn](https://www.linkedin.com/in/richard-itsou-254725361/)
+- [GitHub](https://github.com/Richard-Sup-Dev)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Licença
+Este projeto é open-source e pode ser adaptado livremente.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
+Sinta-se à vontade para usar este portfólio como referência ou inspiração!
 
-## Learn More
+# Meu Portfólio Épico
 
-To learn more about Next.js, take a look at the following resources:
+Este é o portfólio de Richard Itsou Lima, desenvolvido com Next.js, React, TypeScript, Tailwind CSS e animações Framer Motion.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Como rodar localmente
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+npm install
+npm run dev
+```
 
-## Deploy on Vercel
+Acesse http://localhost:3000
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Deploy
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Deploy recomendado: [Vercel](https://vercel.com/)
+- Outras opções: Netlify, AWS Amplify, etc.
+
+## Funcionalidades
+- Visual sci-fi, neon e glitch
+- Seção de projetos com destaque animado
+- Skills, certificações, contato
+- SEO avançado (Open Graph, Twitter, favicon)
+- Totalmente responsivo
+- Acessibilidade aprimorada
+- Microinterações e animações
+
+## Estrutura
+- `src/app/` - páginas e layout
+- `src/components/` - componentes visuais
+- `public/` - imagens e ícones
+
+## Testes
+Estrutura inicial para testes pode ser adicionada com:
+```bash
+npm install --save-dev jest @testing-library/react @testing-library/jest-dom
+```
+
+## Licença
+
+# Meu Portfólio Profissional
+
+Este é o portfólio de Richard Itsou Lima, desenvolvido em Next.js, React, Tailwind CSS e TypeScript.
+
+## Como rodar localmente
+
+1. Clone o repositório
+2. Instale as dependências:
+	```bash
+	npm install
+	```
+3. Rode o projeto:
+	```bash
+	npm run dev
+	```
+4. Acesse http://localhost:3000
+
+## Estrutura
+- Sobre Mim
+- Projetos
+- Skills (Frontend, Backend, DevOps, Soft Skills)
+- Certificações (com validação)
+- Contato (WhatsApp, LinkedIn, E-mail)
+- Currículo para download
+
+## Tecnologias
+- Next.js 16
+- React 19
+- Tailwind CSS 4
+- TypeScript
+- Framer Motion
+- Docker (opcional)
+
+## Deploy
+Recomendado: Vercel ou Netlify
+
+## SEO e Social
+- Meta tags otimizadas
+- Open Graph e Twitter Card configurados
+
+## Testes
+- Estrutura pronta para Jest/RTL
+
+## Contato
+- WhatsApp: https://wa.me/55449991087806
+- LinkedIn: https://www.linkedin.com/in/richard-itsou-254725361/
+- E-mail: natsunokill188@gmail.com
+
+---
+Sinta-se à vontade para adaptar este portfólio para suas necessidades!
