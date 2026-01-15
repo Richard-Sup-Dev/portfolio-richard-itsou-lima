@@ -23,6 +23,7 @@ export default function Header() {
         const el = document.querySelector(link.href);
         if (!el) return null;
         const rect = el.getBoundingClientRect();
+        if (!rect) return null;
         return {
           id: link.href.replace('#', ''),
           top: rect.top + window.scrollY,
