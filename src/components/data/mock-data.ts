@@ -1,4 +1,4 @@
-// src/components/data/mock-data.ts
+// Dados de projetos e skills para exibição no portfólio
 
 import { Project } from "@/types/project.type";
 import { Skill } from "@/types/skill.type";
@@ -10,7 +10,7 @@ export const mockProjects: Project[] = [
     techStack: ["React", "Node.js", "PostgreSQL", "Tailwind CSS"],
     githubUrl: "https://github.com/Richard-Sup-Dev/ecoconnect",
     liveUrl: "https://ecoconnect.app",
-    thumbnail: "/projects/ecoconnect.jpg", // ← coloque uma thumbnail aqui depois (ou use placeholder por enquanto)
+    thumbnail: "/projects/ecoconnect.jpg", // Imagem do projeto (adicione uma imagem real depois se quiser)
   },
   {
     title: "Financial Flow",
@@ -18,25 +18,25 @@ export const mockProjects: Project[] = [
     techStack: ["React Native", "Firebase", "TypeScript"],
     githubUrl: "https://github.com/Richard-Sup-Dev/financial-flow",
     liveUrl: "https://play.google.com/financialflow",
-    thumbnail: "/projects/financialflow.jpg", // ← mesma coisa
+    thumbnail: "/projects/financialflow.jpg", // Imagem do projeto (adicione uma imagem real depois se quiser)
   },
 ];
 
 export const mockSkills: Skill[] = [
-
-    { name: "TypeScript", icon: "/skills/TypeScript.png", category: "Frontend" },
-    { name: "Next.js", icon: "/skills/Next.js.png", category: "Frontend" },
-    { name: "React", icon: "/skills/React.png", category: "Frontend" },
-    { name: "Tailwind CSS", icon: "/skills/Tailwind CSS.png", category: "Frontend" },
-    { name: "Node.js", icon: "/skills/Node.js.png", category: "Backend" },
-    { name: "PostgreSQL", icon: "/skills/PostgreSQL.png", category: "Backend" },
-    { name: "SQLite", icon: "/skills/SQLite.png", category: "Backend" },
-    { name: "Docker", icon: "/skills/Docker.png", category: "DevOps" },
-    { name: "GitHub", icon: "/skills/GitHub.png", category: "DevOps" },
-    { name: "AWS", icon: "/skills/AWS.png", category: "DevOps" },
-    { name: "Scrum", icon: "/skills/Scrum.png", category: "Soft Skill" },
-    { name: "Kanban", icon: "/skills/Kanban.png", category: "Soft Skill" },
-    { name: "Comunicação", icon: "/skills/Comunicação.png", category: "Soft Skill" },
+  // Skills separadas por categoria para exibição organizada
+  { name: "TypeScript", icon: "/skills/TypeScript.png", category: "Frontend" },
+  { name: "Next.js", icon: "/skills/Next.js.png", category: "Frontend" },
+  { name: "React", icon: "/skills/React.png", category: "Frontend" },
+  { name: "Tailwind CSS", icon: "/skills/Tailwind CSS.png", category: "Frontend" },
+  { name: "Node.js", icon: "/skills/Node.js.png", category: "Backend" },
+  { name: "PostgreSQL", icon: "/skills/PostgreSQL.png", category: "Backend" },
+  { name: "SQLite", icon: "/skills/SQLite.png", category: "Backend" },
+  { name: "Docker", icon: "/skills/Docker.png", category: "DevOps" },
+  { name: "GitHub", icon: "/skills/GitHub.png", category: "DevOps" },
+  { name: "AWS", icon: "/skills/AWS.png", category: "DevOps" },
+  { name: "Scrum", icon: "/skills/Scrum.png", category: "Soft Skill" },
+  { name: "Kanban", icon: "/skills/Kanban.png", category: "Soft Skill" },
+  { name: "Comunicação", icon: "/skills/Comunicação.png", category: "Soft Skill" },
 ];
 
 export const profileData = {

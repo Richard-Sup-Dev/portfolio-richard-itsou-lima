@@ -4,6 +4,7 @@
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 
+// Dados do projeto destaque
 const dashborn = {
   title: "EDDA Sistema (Dashborn)",
   description: `Sistema web completo para gestão e geração de relatórios técnicos de manutenção industrial, com foco em segurança, automação, escalabilidade e operação em produção. Interface moderna, responsiva e com experiência premium.`,
@@ -12,7 +13,7 @@ const dashborn = {
   ],
   githubUrl: "https://github.com/Richard-Sup-Dev/edda-sistema",
   liveUrl: undefined,
-  thumbnail: "/projects/Sistema-EDDA.png" // Certifique-se que a imagem está em public/projects/
+  thumbnail: "/projects/Sistema-EDDA.png" // Imagem do projeto (adicione em public/projects/)
 };
 
 export default function Projects() {
@@ -36,7 +37,7 @@ export default function Projects() {
         transition={{ duration: 0.9, ease: "backOut" }}
         style={{ boxShadow: '0 8px 64px 0 rgba(0,242,255,0.15), 0 1.5px 0 0 #00f2ff' }}
       >
-        {/* Imagem com efeito de vidro e glow */}
+        {/* Imagem do projeto com efeito de vidro e glow */}
         <motion.div
           className="relative w-full md:w-1/2 aspect-video rounded-2xl overflow-hidden shadow-lg border-2 border-cyan-500/30 bg-cyan-400/10"
           initial={{ x: -60, opacity: 0 }}
@@ -54,7 +55,7 @@ export default function Projects() {
           <div className="absolute inset-0 bg-linear-to-t from-cyan-900/60 via-transparent to-transparent pointer-events-none" />
         </motion.div>
 
-        {/* Conteúdo do projeto */}
+        {/* Conteúdo do projeto: descrição, tecnologias e links */}
         <motion.div
           className="flex-1 flex flex-col gap-6 items-center md:items-start text-center md:text-left"
           initial={{ x: 60, opacity: 0 }}

@@ -11,7 +11,7 @@ import Particles from './Particles';
 export default function Hero() {
   const { name, role, summary, contact } = profileData;
 
-  // Typewriter no cargo (roda só uma vez)
+  // Efeito de digitação no cargo
   const [displayedRole, setDisplayedRole] = useState("");
   const fullRole = role;
 
@@ -28,7 +28,7 @@ export default function Hero() {
     return () => clearInterval(interval);
   }, [fullRole]);
 
-  // Parallax com mouse
+  // Parallax com o mouse
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
   const rotateX = useTransform(mouseY, [-300, 300], [10, -10]);
@@ -36,19 +36,19 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-6 py-24 bg-[radial-gradient(ellipse_at_top_left,var(--cyan-glow-soft),transparent_70%)]">
-      {/* Partículas ciano flutuando */}
+      {/* Partículas animadas de fundo */}
       <Particles count={12} />
 
       <div className="relative z-10 max-w-6xl mx-auto w-full grid md:grid-cols-2 gap-16 items-center">
 
-        {/* Lado Esquerdo: Texto */}
+        {/* Lado esquerdo: texto de apresentação */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
           className="text-center md:text-left space-y-8"
         >
-          {/* Todo o conteúdo de texto permanece igual (h1, h2, p, botões, ícones) */}
+          {/* Título, subtítulo, descrição e botões */}
           <div>
             <motion.h1
               className="text-5xl md:text-7xl lg:text-8xl font-black leading-tight neon-text"
@@ -97,7 +97,7 @@ export default function Hero() {
             {summary}
           </motion.p>
 
-          {/* Botões e ícones sociais (mantidos iguais) */}
+          {/* Botões de contato e redes sociais */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -121,32 +121,17 @@ export default function Hero() {
             </Link>
           </motion.div>
 
+          {/* Ícones sociais */}
           <div className="flex justify-center items-center gap-8 mt-8">
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 2 }}
-              className="flex gap-8 justify-center md:justify-start pt-8"
-            >
-                {[Mail, Linkedin, Github].map((Icon, i) => (
-                  <motion.a
-                    key={i}
-                    href={
-                      Icon === Mail
-                        ? `mailto:${contact.email}`
-                        : Icon === Linkedin
-                            ? contact.linkedin
-                            : contact.github
-                    }
-                    target={Icon !== Mail ? "_blank" : undefined}
-                    className="text-slate-400 hover:text-cyan-300 transition-all duration-200"
-                    whileHover={{ scale: 1.4, rotate: i % 2 === 0 ? 15 : -15 }}
-                    whileTap={{ scale: 0.9 }}
-                  >
-                    <Icon size={32} />
-                  </motion.a>
-                ))}
-            </motion.div>
+            <Link href={`mailto:${contact.email}`} aria-label="E-mail">
+              <Mail size={32} className="text-cyan-400 hover:text-cyan-300 transition" />
+            </Link>
+            <Link href={contact.linkedin} target="_blank" aria-label="LinkedIn">
+              <Linkedin size={32} className="text-cyan-400 hover:text-cyan-300 transition" />
+            </Link>
+            <Link href={contact.github} target="_blank" aria-label="GitHub">
+              <Github size={32} className="text-cyan-400 hover:text-cyan-300 transition" />
+            </Link>
           </div>
         </motion.div>
 

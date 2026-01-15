@@ -17,7 +17,7 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
 
-  // Detecta qual seção está na tela e destaca o link
+  // Atualiza o link ativo conforme a rolagem da página
   useEffect(() => {
     const handleScroll = () => {
       const sections = navLinks
@@ -33,7 +33,7 @@ export default function Header() {
         })
         .filter((section): section is { id: string; top: number; bottom: number } => section !== null);
 
-      const scrollY = window.scrollY + window.innerHeight / 4; // offset para ativar antes do topo
+      const scrollY = window.scrollY + window.innerHeight / 4; // Ativa antes do topo
       let current = 'hero';
       for (let i = 0; i < sections.length; i++) {
         const currentSection = sections[i];
@@ -54,18 +54,18 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Corrige o activeSection ao clicar em um link
+  // Atualiza o link ativo ao clicar
   const handleNavClick = (id: string) => {
     setActiveSection(id);
   };
 
   return (
     <>
-      {/* Header Mobile */}
+      {/* Header Mobile (aparece só em telas pequenas) */}
       <div className="md:hidden">
         <HeaderMobile onMenuClick={() => setIsOpen(!isOpen)} />
       </div>
-      {/* Header Desktop */}
+      {/* Header Desktop (aparece só em telas médias e grandes) */}
       <header className="hidden md:block sticky top-0 z-50 bg-slate-900/80 backdrop-blur-md shadow-md transition-all duration-200 border-b-2 border-cyan-800/40 w-full">
         <nav className="container mx-auto flex items-center justify-between px-4 py-4">
           {/* Logo */}

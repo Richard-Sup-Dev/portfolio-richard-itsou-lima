@@ -4,6 +4,7 @@ import { mockSkills } from '@/components/data/mock-data';
 import Image from 'next/image';
 import { motion, easeOut } from 'framer-motion';
 
+// Animação do container para exibir as skills em sequência
 const container = {
   hidden: { opacity: 0 },
   visible: {
@@ -15,6 +16,7 @@ const container = {
   },
 };
 
+// Animação individual de cada skill
 const item = {
   hidden: { opacity: 0, y: 40 },
   visible: {
@@ -25,6 +27,7 @@ const item = {
 };
 
 export default function Skills() {
+  // Categorias para agrupar as skills
   const categories = ["Frontend", "Backend", "DevOps"];
   return (
     <section id="skills" className="container mx-auto px-2 sm:px-4 py-16 sm:py-20 bg-[radial-gradient(ellipse_at_bottom_right,var(--cyan-glow-soft),transparent_70%)] rounded-3xl shadow-2xl" aria-labelledby="skills-title">
@@ -61,9 +64,9 @@ export default function Skills() {
                     transition: { duration: 0.3, ease: "easeOut" },
                   }}
                 >
-                  {/* Glow/blur reduzido para sobriedade */}
+                  {/* Efeito de brilho ao passar o mouse */}
                   <div className="absolute inset-0 rounded-2xl bg-cyan-500/10 scale-0 opacity-0 group-hover:scale-105 group-hover:opacity-80 transition-all duration-400 pointer-events-none" />
-                  {/* Conteúdo principal */}
+                  {/* Ícone da skill */}
                   <div className="relative z-10 w-20 h-20 mb-4" aria-hidden="true">
                     <Image
                       src={skill.icon}
@@ -71,7 +74,7 @@ export default function Skills() {
                       fill
                       sizes="80px"
                       className="object-contain drop-shadow-2xl transition-all duration-500 group-hover:drop-shadow-cyan-400/90"
-                      priority={index < 8} // Só as primeiras 8 imagens carregam com priority
+                      priority={index < 8}
                     />
                   </div>
                   <p className="relative z-10 text-base font-semibold text-slate-200 group-hover:text-cyan-300 transition-colors duration-300 neon-text">

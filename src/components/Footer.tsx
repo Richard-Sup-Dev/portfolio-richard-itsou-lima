@@ -13,7 +13,7 @@ export default function Footer() {
     <footer id="contact" className="bg-linear-to-t from-slate-950 to-slate-900 border-t border-cyan-900/50 mt-20 shadow-lg" aria-labelledby="contact-title">
       <div className="container mx-auto px-2 sm:px-4 py-6 sm:py-16">
         
-        {/* Título com animação suave ao entrar na seção */}
+        {/* Título animado ao entrar na seção */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -25,12 +25,11 @@ export default function Footer() {
             Vamos Conversar!
           </h2>
           <p className="text-xs sm:text-base md:text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed neon-text">
-            Tenho experiência em resolver desafios complexos e criar soluções performáticas. 
-            Se você tem um projeto em mente, entre em contato.
+            Tenho experiência em resolver desafios complexos e criar soluções performáticas. Se você tem um projeto em mente, entre em contato.
           </p>
         </motion.div>
 
-        {/* Contato Principal */}
+        {/* Contato principal (e-mail e WhatsApp) */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -58,7 +57,7 @@ export default function Footer() {
               <div className="p-3 bg-cyan-500/10 rounded-full">
                 <Phone size={24} className="text-cyan-400" />
               </div>
-              <span className="text-lg font-medium">(44) 9 9108-7806</span>
+              <span className="text-lg font-medium">WhatsApp</span>
             </Link>
           )}
         </motion.div>
