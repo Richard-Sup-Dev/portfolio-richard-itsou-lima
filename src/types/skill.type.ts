@@ -3,6 +3,5 @@
 export interface Skill {
     name: string;
     icon: string;
-    level: 'Básico' | 'Intermediário' | 'Avançado' | 'Especialista';
     category?: string;
-}
+};
