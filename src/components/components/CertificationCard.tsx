@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { Certification } from "../data/types";
+import { Certification } from "@/components/certifications/data/types";
 
 interface CertificationCardProps {
   certification: Certification;

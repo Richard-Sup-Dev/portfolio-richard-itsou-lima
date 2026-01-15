@@ -2,7 +2,7 @@
 
 import { mockSkills } from '@/components/data/mock-data';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+import { motion, easeOut } from 'framer-motion';
 
 const container = {
   hidden: { opacity: 0 },
@@ -20,7 +20,7 @@ const item = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.7, ease: "easeOut" },
+    transition: { duration: 0.7, ease: easeOut },
   },
 };
 
