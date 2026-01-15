@@ -63,7 +63,41 @@ export default function Header() {
     <>
       {/* Header Mobile (aparece só em telas pequenas) */}
       <div className="md:hidden">
-        <HeaderMobile onMenuClick={() => setIsOpen(!isOpen)} />
+        <HeaderMobile onMenuClick={() => setIsOpen(true)} />
+        {/* Drawer lateral */}
+        {isOpen && (
+          <div className="fixed inset-0 z-50 flex">
+            {/* Overlay escuro */}
+            <div className="fixed inset-0 bg-black/60 backdrop-blur-sm" onClick={() => setIsOpen(false)} />
+            {/* Menu lateral */}
+            <nav className="relative ml-auto w-64 max-w-[80vw] h-full bg-slate-900 border-l-2 border-cyan-800/40 shadow-2xl flex flex-col p-6 animate-slide-in">
+              <button
+                className="self-end mb-8 text-cyan-400 p-2 rounded-lg hover:bg-slate-800 transition"
+                onClick={() => setIsOpen(false)}
+                aria-label="Fechar menu"
+              >
+                <X size={32} />
+              </button>
+              <ul className="flex flex-col gap-6 mt-4">
+                {navLinks.map((link) => (
+                  <li key={link.name}>
+                    <Link
+                      href={link.href}
+                      onClick={() => { setIsOpen(false); handleNavClick(link.href.replace('#', '')); }}
+                      className="block text-lg font-bold text-cyan-300 hover:text-cyan-400 neon-text px-2 py-2 rounded transition-all duration-200"
+                    >
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+            <style>{`
+              @keyframes slide-in { from { transform: translateX(100%); } to { transform: translateX(0); } }
+              .animate-slide-in { animation: slide-in 0.25s cubic-bezier(0.4,0,0.2,1); }
+            `}</style>
+          </div>
+        )}
       </div>
       {/* Header Desktop (aparece só em telas médias e grandes) */}
       <header className="hidden md:block sticky top-0 z-50 bg-slate-900/80 backdrop-blur-md shadow-md transition-all duration-200 border-b-2 border-cyan-800/40 w-full">

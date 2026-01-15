@@ -46,7 +46,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
-          className="text-center md:text-left space-y-8"
+          className="order-2 md:order-1 text-center md:text-left space-y-8"
         >
           {/* Título, subtítulo, descrição e botões */}
           <div>
@@ -126,7 +126,7 @@ export default function Hero() {
         </motion.div>
 
         {/* LADO DIREITO: FOTO ESTÁVEL COM AURÉOLAS ANIMADAS */}
-        <div className="relative flex justify-center items-center mt-10 xs:mt-0">
+        <div className="order-1 md:order-2 relative flex justify-center items-center mt-10 xs:mt-0">
           {/* ORBIT WRAPPER: container quadrado fixo */}
           <div className="relative w-52 h-52 xs:w-72 xs:h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 lg:w-110 lg:h-110 aspect-square flex items-center justify-center">
 
