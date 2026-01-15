@@ -51,7 +51,7 @@ export default function Hero() {
           {/* Título, subtítulo, descrição e botões */}
           <div>
             <motion.h1
-              className="text-5xl md:text-7xl lg:text-8xl font-black leading-tight neon-text"
+              className="text-3xl xs:text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black leading-tight neon-text"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8 }}
@@ -76,7 +76,7 @@ export default function Hero() {
             </motion.h1>
 
             <motion.h2
-              className="text-3xl md:text-4xl font-bold text-cyan-300 mt-6 h-12"
+              className="text-xl xs:text-2xl sm:text-3xl md:text-4xl font-bold text-cyan-300 mt-4 md:mt-6 h-10 md:h-12"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1.2 }}
@@ -92,7 +92,7 @@ export default function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.6, duration: 1 }}
-            className="text-lg md:text-xl text-slate-300 max-w-lg mx-auto md:mx-0 leading-relaxed"
+            className="text-base xs:text-lg md:text-xl text-slate-300 max-w-xs xs:max-w-md md:max-w-lg mx-auto md:mx-0 leading-relaxed"
           >
             {summary}
           </motion.p>
@@ -102,11 +102,11 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.8 }}
-            className="flex flex-wrap gap-5 justify-center md:justify-start pt-6"
+            className="flex flex-col xs:flex-row flex-wrap gap-4 xs:gap-5 justify-center md:justify-start pt-4 md:pt-6"
           >
             <Link
               href="#contact"
-              className="px-8 py-4 bg-cyan-500/10 border border-cyan-400/40 text-cyan-300 font-bold rounded-xl hover:bg-cyan-500/20 hover:border-cyan-300 transition-all duration-300 group relative overflow-hidden shadow-md"
+              className="px-6 py-3 xs:px-8 xs:py-4 bg-cyan-500/10 border border-cyan-400/40 text-cyan-300 font-bold rounded-xl hover:bg-cyan-500/20 hover:border-cyan-300 transition-all duration-300 group relative overflow-hidden shadow-md text-base xs:text-lg"
             >
               <span className="relative z-10">Fale Comigo</span>
               <div className="absolute inset-0 bg-linear-to-r from-cyan-500/30 to-transparent -translate-x-full group-hover:translate-x-0 transition-transform duration-400" />
@@ -115,30 +115,19 @@ export default function Hero() {
             <Link
               href={contact.github}
               target="_blank"
-              className="px-8 py-4 border border-slate-500 text-slate-200 font-semibold rounded-xl hover:border-cyan-400 hover:text-cyan-300 hover:bg-cyan-400/10 transition-all duration-300 shadow"
+              className="px-6 py-3 xs:px-8 xs:py-4 border border-slate-500 text-slate-200 font-semibold rounded-xl hover:border-cyan-400 hover:text-cyan-300 hover:bg-cyan-400/10 transition-all duration-300 shadow text-base xs:text-lg"
             >
               Ver GitHub
             </Link>
           </motion.div>
 
-          {/* Ícones sociais */}
-          <div className="flex justify-center items-center gap-8 mt-8">
-            <Link href={`mailto:${contact.email}`} aria-label="E-mail">
-              <Mail size={32} className="text-cyan-400 hover:text-cyan-300 transition" />
-            </Link>
-            <Link href={contact.linkedin} target="_blank" aria-label="LinkedIn">
-              <Linkedin size={32} className="text-cyan-400 hover:text-cyan-300 transition" />
-            </Link>
-            <Link href={contact.github} target="_blank" aria-label="GitHub">
-              <Github size={32} className="text-cyan-400 hover:text-cyan-300 transition" />
-            </Link>
-          </div>
+          {/* Ícones sociais removidos para evitar duplicidade (já existem no Footer e Fale Comigo) */}
         </motion.div>
 
         {/* LADO DIREITO: FOTO ESTÁVEL COM AURÉOLAS ANIMADAS */}
-        <div className="relative flex justify-center items-center">
+        <div className="relative flex justify-center items-center mt-10 xs:mt-0">
           {/* ORBIT WRAPPER: container quadrado fixo */}
-          <div className="relative w-80 h-80 md:w-96 md:h-96 lg:w-110 lg:h-110 aspect-square flex items-center justify-center">
+          <div className="relative w-52 h-52 xs:w-72 xs:h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 lg:w-110 lg:h-110 aspect-square flex items-center justify-center">
 
             {/* Auréola externa pulsante (grande e visível) */}
             <div className="absolute -inset-7.5 rounded-full border-4 border-cyan-400/50 shadow-[0_0_50px_rgba(6,182,212,0.8)] animate-pulse opacity-80" />

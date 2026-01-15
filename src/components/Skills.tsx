@@ -30,23 +30,23 @@ export default function Skills() {
   // Categorias para agrupar as skills
   const categories = ["Frontend", "Backend", "DevOps"];
   return (
-    <section id="skills" className="container mx-auto px-2 sm:px-4 py-16 sm:py-20 bg-[radial-gradient(ellipse_at_bottom_right,var(--cyan-glow-soft),transparent_70%)] rounded-3xl shadow-2xl" aria-labelledby="skills-title">
+    <section id="skills" className="container mx-auto px-1 sm:px-4 py-8 sm:py-20 bg-[radial-gradient(ellipse_at_bottom_right,var(--cyan-glow-soft),transparent_70%)] rounded-2xl shadow-2xl" aria-labelledby="skills-title">
       <motion.h2
         initial={{ opacity: 0, y: -30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.8 }}
         id="skills-title"
-        className="text-4xl md:text-5xl font-extrabold text-center text-cyan-400 mb-12 sm:mb-16 flex items-center justify-center gap-4 tracking-tight drop-shadow-glow neon-text"
+        className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-extrabold text-center text-cyan-400 mb-6 sm:mb-16 flex items-center justify-center gap-2 sm:gap-4 tracking-tight drop-shadow-glow neon-text"
       >
-        <span className="text-5xl">🛠️</span> Habilidades Técnicas
+        <span className="text-3xl sm:text-5xl">🛠️</span> Habilidades Técnicas
       </motion.h2>
-      <div className="space-y-12">
+      <div className="space-y-8 sm:space-y-12">
         {categories.map((cat) => (
           <div key={cat}>
-            <h3 className="text-2xl font-bold text-cyan-300 mb-6 mt-8">{cat}</h3>
+            <h3 className="text-lg sm:text-2xl font-bold text-cyan-300 mb-3 sm:mb-6 mt-4 sm:mt-8">{cat}</h3>
             <motion.div
-              className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 sm:gap-6 md:gap-10 w-full"
+              className="grid grid-cols-2 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-2 xs:gap-3 sm:gap-6 md:gap-10 w-full"
               variants={container}
               initial="hidden"
               whileInView="visible"
@@ -56,28 +56,28 @@ export default function Skills() {
                 <motion.div
                   key={skill.name}
                   variants={item}
-                  className="group relative bg-slate-800/60 rounded-2xl p-3 sm:p-6 flex flex-col items-center justify-center shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-2 overflow-hidden border border-cyan-800/40 focus-within:ring-2 focus-within:ring-cyan-400"
+                  className="group relative bg-slate-800/60 rounded-xl sm:rounded-2xl p-2 xs:p-3 sm:p-6 flex flex-col items-center justify-center shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-2 overflow-hidden border border-cyan-800/40 focus-within:ring-2 focus-within:ring-cyan-400 min-h-[120px] sm:min-h-[160px]"
                   tabIndex={0}
                   aria-label={`Skill: ${skill.name}`}
                   whileHover={{
-                    scale: 1.15,
+                    scale: 1.08,
                     transition: { duration: 0.3, ease: "easeOut" },
                   }}
                 >
                   {/* Efeito de brilho ao passar o mouse */}
-                  <div className="absolute inset-0 rounded-2xl bg-cyan-500/10 scale-0 opacity-0 group-hover:scale-105 group-hover:opacity-80 transition-all duration-400 pointer-events-none" />
+                  <div className="absolute inset-0 rounded-xl sm:rounded-2xl bg-cyan-500/10 scale-0 opacity-0 group-hover:scale-105 group-hover:opacity-80 transition-all duration-400 pointer-events-none" />
                   {/* Ícone da skill */}
-                  <div className="relative z-10 w-20 h-20 mb-4" aria-hidden="true">
+                  <div className="relative z-10 w-12 h-12 xs:w-16 xs:h-16 sm:w-20 sm:h-20 mb-2 xs:mb-3 sm:mb-4" aria-hidden="true">
                     <Image
                       src={skill.icon}
                       alt={`Ícone da skill ${skill.name}`}
                       fill
-                      sizes="80px"
+                      sizes="48px"
                       className="object-contain drop-shadow-2xl transition-all duration-500 group-hover:drop-shadow-cyan-400/90"
                       priority={index < 8}
                     />
                   </div>
-                  <p className="relative z-10 text-base font-semibold text-slate-200 group-hover:text-cyan-300 transition-colors duration-300 neon-text">
+                  <p className="relative z-10 text-xs xs:text-sm sm:text-base font-semibold text-slate-200 group-hover:text-cyan-300 transition-colors duration-300 neon-text text-center">
                     {skill.name}
                   </p>
                 </motion.div>

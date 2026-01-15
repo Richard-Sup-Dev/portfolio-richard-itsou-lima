@@ -30,7 +30,7 @@ export const mockSkills: Skill[] = [
   { name: "Tailwind CSS", icon: "/skills/Tailwind CSS.png", category: "Frontend" },
   { name: "Node.js", icon: "/skills/Node.js.png", category: "Backend" },
   { name: "PostgreSQL", icon: "/skills/PostgreSQL.png", category: "Backend" },
-  { name: "Sqlite", icon: "/skills/Sqlite.png", category: "Backend" },
+  { name: "SQLite", icon: "/skills/Sqlite.png", category: "Backend" },
   { name: "Docker", icon: "/skills/Docker.png", category: "DevOps" },
   { name: "GitHub", icon: "/skills/GitHub.png", category: "DevOps" },
   { name: "AWS", icon: "/skills/AWS.png", category: "DevOps" },
