@@ -16,7 +16,7 @@ export function CertificationCard({ certification }: CertificationCardProps) {
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.7, ease: "easeOut" }}
       whileHover={{ scale: 1.04, boxShadow: "0 0 32px 0 #00f2ff55" }}
-      className="bg-gradient-to-br from-cyan-900/60 via-slate-900/80 to-cyan-800/40 rounded-2xl shadow-xl overflow-hidden border border-cyan-700/30 backdrop-blur-xl glassmorphism transition-all duration-300 group"
+      className="bg-linear-to-br from-cyan-900/60 via-slate-900/80 to-cyan-800/40 rounded-2xl shadow-xl overflow-hidden border border-cyan-700/30 backdrop-blur-xl glassmorphism transition-all duration-300 group"
       tabIndex={0}
       aria-label={`Certificação: ${certification.title}`}
     >
